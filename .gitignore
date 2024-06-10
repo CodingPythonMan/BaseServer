@@ -330,4 +330,8 @@ __pycache__/
 # *.filters
 
 # 내가 추가한 파일들
-!/BaseServer/Library/BugTrap/
+!/Library/BugTrap/[Bb]in/
+!BugTrapUD-x64.dll
+!BugTrapUD-x64.lib
+!BugTrapU-x64.dll
+!BugTrapU-x64.lib
