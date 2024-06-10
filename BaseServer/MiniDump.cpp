@@ -27,7 +27,23 @@ void MiniDump::InitExceptionHandler(bool autoRestart)
 
 	// BugTrap 등록
 	BT_InstallSehFilter(); 
+	BT_SetAppName(fullPath.stem().c_str());
 
+	// autoRestart 쓰기
+	if (true == autoRestart)
+		// 크래시 나자마자 재시작하는 옵션
+		BT_SetFlags(BTF_DETAILEDMODE | BTF_RESTARTAPP);
+	else
+		BT_SetFlags(BTF_DETAILEDMODE);
 
+	BT_SetActivityType(BTA_SAVEREPORT);
+	BT_SetDumpType(dumpType);
 
+	// Dump Path 등록
+	std::wstring dumpPath = fullPath.parent_path().c_str();
+	dumpPath.append(L".\\Dump\\");
+
+	BT_SetReportFilePath(dumpPath.c_str());
+
+	BT_SetReportFormat(BTRF_XML);
 }

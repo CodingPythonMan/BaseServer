@@ -7,17 +7,29 @@
     <Filter Include="Utils">
       <UniqueIdentifier>{07785735-4140-4ec2-bf6c-be38d271d57b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{c29b692f-f3f4-4a00-a197-e20cfb62efe5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BaseServer.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="MiniDump.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
+    <ClCompile Include="BaseServer.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniDump.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseServer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
       <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>

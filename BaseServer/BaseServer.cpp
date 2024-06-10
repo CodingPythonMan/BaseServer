@@ -1,7 +1,20 @@
-﻿#include "MiniDump.h"
+#include "BaseServer.h"
 
-int main()
+BaseServer::BaseServer()
 {
-    MiniDump::InitExceptionHandler();
 
+}
+
+BaseServer::~BaseServer()
+{
+}
+
+bool BaseServer::Initialize()
+{
+	return false;
+}
+
+bool BaseServer::Run()
+{
+	return false;
 }
