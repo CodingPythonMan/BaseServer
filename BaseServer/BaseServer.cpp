@@ -1,8 +1,10 @@
 #include "BaseServer.h"
+#include "ConfigParser.h"
 
 BaseServer::BaseServer()
 {
-
+	ConfigParser::CreateInstance();
+	
 }
 
 BaseServer::~BaseServer()
@@ -11,7 +13,9 @@ BaseServer::~BaseServer()
 
 bool BaseServer::Initialize()
 {
-	return false;
+	ConfigParser::GetInstance()->LoadConfig(L"GameConfig.json");
+
+	return true;
 }
 
 bool BaseServer::Run()

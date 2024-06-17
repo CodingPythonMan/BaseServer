@@ -1,0 +1,12 @@
+{
+  "Server": {
+    "Name": "Game",
+    "ServerID": 101,
+    "BindAddress": "0.0.0.0",
+    "BindPort": 12345,
+    "Nagle": true,
+    "MaxConnection": 10000
+  },
+
+  "Language": "KR"
+}

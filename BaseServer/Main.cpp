@@ -6,5 +6,6 @@ int main()
     MiniDump::InitExceptionHandler();
 
     BaseServer server;
+    server.Initialize();
 
 }

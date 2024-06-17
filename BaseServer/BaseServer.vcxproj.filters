@@ -4,33 +4,33 @@
     <Filter Include="Main">
       <UniqueIdentifier>{fb2dc7b6-69b7-4fee-85e8-a650618e71da}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Utils">
-      <UniqueIdentifier>{07785735-4140-4ec2-bf6c-be38d271d57b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Network">
       <UniqueIdentifier>{c29b692f-f3f4-4a00-a197-e20cfb62efe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{c53d48e4-14d8-422a-ba6c-04f8bc72d210}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
-    <ClCompile Include="MiniDump.cpp">
-      <Filter>Utils</Filter>
-    </ClCompile>
     <ClCompile Include="BaseServer.cpp">
       <Filter>Network</Filter>
     </ClCompile>
+    <ClCompile Include="ConfigParser.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MiniDump.h">
-      <Filter>Utils</Filter>
-    </ClInclude>
     <ClInclude Include="BaseServer.h">
       <Filter>Network</Filter>
     </ClInclude>
-    <ClInclude Include="Singleton.h">
-      <Filter>Utils</Filter>
+    <ClInclude Include="ConfigParser.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Language.h">
+      <Filter>Config</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
