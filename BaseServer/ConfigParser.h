@@ -26,11 +26,15 @@ public:
 
 private:
 	bool					LoadJson(const std::wstring& configFile, size_t fileSize);
-	bool					LoadCPUInfo();
+	void					LoadCPUInfo();
 
 private:
 	std::wstring			m_fileName;
 
+	// Parser ตฅภฬลอ
 	ServerInfo				m_serverInfo;
 	Language				m_language;
+
+	// CPU Count
+	int						m_processorCount;
 };

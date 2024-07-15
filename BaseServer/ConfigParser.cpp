@@ -111,7 +111,13 @@ bool ConfigParser::LoadJson(const std::wstring& configFile, size_t fileSize)
 	return true;
 }
 
-bool ConfigParser::LoadCPUInfo()
+void ConfigParser::LoadCPUInfo()
 {
-	return false;
+	SYSTEM_INFO info;
+	// 현재 컴퓨터 시스템에 대한 정보를 포함합니다. 
+	GetSystemInfo(&info);
+	m_processorCount = (int)info.dwNumberOfProcessors;
+
+	if (m_processorCount <= 0)
+		m_processorCount = 1;
 }
