@@ -22,6 +22,7 @@
     <ClCompile Include="jsoncpp\json_reader.cpp" />
     <ClCompile Include="jsoncpp\json_value.cpp" />
     <ClCompile Include="jsoncpp\json_writer.cpp" />
+    <ClCompile Include="Listener.cpp" />
     <ClCompile Include="MiniDump.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -36,6 +37,7 @@
     <ClInclude Include="jsoncpp\reader.h" />
     <ClInclude Include="jsoncpp\value.h" />
     <ClInclude Include="jsoncpp\writer.h" />
+    <ClInclude Include="Listener.h" />
     <ClInclude Include="MiniDump.h" />
     <ClInclude Include="Singleton.h" />
   </ItemGroup>

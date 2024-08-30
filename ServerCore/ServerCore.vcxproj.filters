@@ -10,6 +10,9 @@
     <Filter Include="Jsoncpp">
       <UniqueIdentifier>{05f793e2-a1e6-439e-808a-e3cf5fdc01bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{efe8a56d-e761-4e6f-9697-398d7eb5c94e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniDump.cpp">
@@ -23,6 +26,9 @@
     </ClCompile>
     <ClCompile Include="jsoncpp\json_writer.cpp">
       <Filter>Jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Listener.cpp">
+      <Filter>Network</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="jsoncpp\writer.h">
       <Filter>Jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="Listener.h">
+      <Filter>Network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
