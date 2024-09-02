@@ -24,6 +24,8 @@
     <ClCompile Include="jsoncpp\json_writer.cpp" />
     <ClCompile Include="Listener.cpp" />
     <ClCompile Include="MiniDump.cpp" />
+    <ClCompile Include="NetworkService.cpp" />
+    <ClCompile Include="ServerService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="json.h" />
@@ -39,6 +41,8 @@
     <ClInclude Include="jsoncpp\writer.h" />
     <ClInclude Include="Listener.h" />
     <ClInclude Include="MiniDump.h" />
+    <ClInclude Include="NetworkService.h" />
+    <ClInclude Include="ServerService.h" />
     <ClInclude Include="Singleton.h" />
   </ItemGroup>
   <ItemGroup>
