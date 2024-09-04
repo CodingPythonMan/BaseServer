@@ -13,5 +13,5 @@ public:
 
 private:
 	HANDLE		m_handle;
+	bool		m_isTerminate;
 };
-

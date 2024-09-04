@@ -36,6 +36,12 @@
     <ClCompile Include="ServerService.cpp">
       <Filter>Network</Filter>
     </ClCompile>
+    <ClCompile Include="Session.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkJob.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
@@ -85,6 +91,18 @@
     </ClInclude>
     <ClInclude Include="ServerService.h">
       <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="DefineType.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Session.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkJob.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="LockQueue.h">
+      <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
