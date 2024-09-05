@@ -2,8 +2,9 @@
 // ServerCore 에 들어가야 알맞은 값이 된다.
 #include "NetworkService.h"
 #include "ServerService.h"
+#include "Singleton.h"
 
-class Listener
+class Listener : public Singleton<Listener>
 {
 public:
 	Listener();

@@ -1,5 +1,6 @@
 #include "NetworkService.h"
 #include <process.h>
+#include "DefineMacro.h"
 
 NetworkService::NetworkService() : m_handle(INVALID_HANDLE_VALUE), m_isTerminate(false)
 {
@@ -60,7 +61,7 @@ void NetworkService::RunThread()
 
 		switch (job->GetType())
 		{
-		case EJobType::CONNECT:
+		case EJobType::Connect:
 			OnConnect(*job);
 			break;
 		}
@@ -84,12 +85,48 @@ Session* NetworkService::FindSession(const SessionID& sessionID)
 	return iter->second;
 }
 
+bool NetworkService::AddSession(Session* session)
+{
+	if (session == nullptr)
+	{
+		// 손님 추가 실패
+		return false;
+	}
+
+	// 맵 등록
+	{
+		LockGuard(m_sessionIDLock);
+
+		auto iter = m_sessionMap.find(session->GetID());
+		if (iter != m_sessionMap.end())
+		{
+			session->Close(ESocketClose::AddMapFail);
+			// API
+			// 여기서 Listener 의 주소를 담아 호출할 수 있다.
+		}
+	}
+
+	return false;
+}
+
 void NetworkService::OnConnect(NetworkJob& job)
 {
 	// 손님
 	Session* session = nullptr;
 	
+	// 여기서 전달받은 Job 은 IOCP 를 상속 받은 녀석이다.
+	job.Read(&session, sizeof(session));
+	// Session 자체로 모든 걸 써버린다. => 이게 가능한 까닭은?
+	// 패킷 자체가 Session 의 주소로서 모든 멤버함수를 가지고 있단 소리다.
 
+	if (AddSession(session) == false)
+	{
+		return;
+	}
+
+	//job.ResetBuffer();
+
+	//session->BeginBaseTask();
 }
 
 unsigned int WINAPI NetworkService::ExecuteThread(void* arg)

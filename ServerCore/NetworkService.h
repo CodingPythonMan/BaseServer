@@ -1,8 +1,7 @@
 #pragma once
-#include <Windows.h>
+#include "Session.h"
 #include <unordered_map>
 #include "DefineType.h"
-#include "Session.h"
 #include "NetworkJob.h"
 #include "LockQueue.h"
 
@@ -19,7 +18,7 @@ private:
 	void						SetTerminate();
 
 	Session*					FindSession(const SessionID& sessionID);
-
+	bool						AddSession(Session* session);
 
 	static unsigned int WINAPI	ExecuteThread(void* arg);
 
@@ -34,4 +33,6 @@ private:
 	std::unordered_map<SessionID, bool>			m_isPacketRecvMap;
 
 	LockQueue<NetworkJob>						m_networkJobQueue;
+
+	std::mutex									m_sessionIDLock;
 };

@@ -42,6 +42,9 @@
     <ClCompile Include="NetworkJob.cpp">
       <Filter>Network</Filter>
     </ClCompile>
+    <ClCompile Include="DefineMacro.h">
+      <Filter>Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
@@ -102,6 +105,9 @@
       <Filter>Network</Filter>
     </ClInclude>
     <ClInclude Include="LockQueue.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="DefineConst.h">
       <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>

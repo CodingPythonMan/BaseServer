@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DefineMacro.h" />
     <ClCompile Include="NetworkJob.cpp" />
     <ClCompile Include="jsoncpp\json_reader.cpp" />
     <ClCompile Include="jsoncpp\json_value.cpp" />
@@ -30,6 +31,7 @@
     <ClCompile Include="Session.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DefineConst.h" />
     <ClInclude Include="DefineType.h" />
     <ClInclude Include="NetworkJob.h" />
     <ClInclude Include="json.h" />
