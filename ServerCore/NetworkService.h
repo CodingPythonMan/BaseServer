@@ -1,5 +1,4 @@
 #pragma once
-#include "Session.h"
 #include <unordered_map>
 #include "DefineType.h"
 #include "NetworkJob.h"

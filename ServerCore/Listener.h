@@ -18,4 +18,6 @@ private:
 	// 최근 느낀건데 m_ 이렇게 멤버 함수 적는 게 변수 구분에 도움을 주는 듯 하다.
 	NetworkService*			m_networkService;
 	ServerService*			m_serverService;
+
+	bool					m_running;
 };

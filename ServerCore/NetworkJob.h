@@ -1,5 +1,5 @@
 #pragma once
-#include <windows.h>
+#include "Session.h"
 
 enum class EJobType
 {

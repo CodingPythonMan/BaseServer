@@ -11,7 +11,7 @@ ServerService::~ServerService()
 
 bool ServerService::CreateThread()
 {
-	m_handle = (HANDLE)_beginthreadex(nullptr, 0, ExecuteThread, nullptr, 0, nullptr);
+	m_handle = (HANDLE)_beginthreadex(nullptr, 0, ExecuteThread, this, 0, nullptr);
 	if (m_handle == nullptr || m_handle == INVALID_HANDLE_VALUE)
 	{
 		m_isTerminate = true;
