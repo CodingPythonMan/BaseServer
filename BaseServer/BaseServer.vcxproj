@@ -135,14 +135,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BaseServer.cpp" />
-    <ClCompile Include="ConfigParser.cpp" />
+    <ClCompile Include="ElasticServer.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseServer.h" />
-    <ClInclude Include="ConfigParser.h" />
-    <ClInclude Include="Language.h" />
+    <ClInclude Include="ElasticServer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

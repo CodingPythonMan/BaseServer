@@ -19,20 +19,24 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BaseServer.cpp" />
+    <ClCompile Include="ConfigParser.cpp" />
     <ClCompile Include="DefineMacro.h" />
     <ClCompile Include="NetworkJob.cpp" />
     <ClCompile Include="jsoncpp\json_reader.cpp" />
     <ClCompile Include="jsoncpp\json_value.cpp" />
     <ClCompile Include="jsoncpp\json_writer.cpp" />
-    <ClCompile Include="Listener.cpp" />
     <ClCompile Include="MiniDump.cpp" />
     <ClCompile Include="NetworkService.cpp" />
     <ClCompile Include="ServerService.cpp" />
     <ClCompile Include="Session.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseServer.h" />
+    <ClInclude Include="ConfigParser.h" />
     <ClInclude Include="DefineConst.h" />
     <ClInclude Include="DefineType.h" />
+    <ClInclude Include="Language.h" />
     <ClInclude Include="NetworkJob.h" />
     <ClInclude Include="json.h" />
     <ClInclude Include="jsoncpp\autolink.h" />
@@ -45,7 +49,6 @@
     <ClInclude Include="jsoncpp\reader.h" />
     <ClInclude Include="jsoncpp\value.h" />
     <ClInclude Include="jsoncpp\writer.h" />
-    <ClInclude Include="Listener.h" />
     <ClInclude Include="LockQueue.h" />
     <ClInclude Include="MiniDump.h" />
     <ClInclude Include="NetworkService.h" />

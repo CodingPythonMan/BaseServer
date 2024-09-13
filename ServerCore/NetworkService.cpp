@@ -118,15 +118,19 @@ void NetworkService::OnConnect(NetworkJob& job)
 	job.Read(&session, sizeof(session));
 	// Session 자체로 모든 걸 써버린다. => 이게 가능한 까닭은?
 	// 패킷 자체가 Session 의 주소로서 모든 멤버함수를 가지고 있단 소리다.
+	// 이건... 한번 관찰해 봐야겠다.
 
 	if (AddSession(session) == false)
 	{
 		return;
 	}
 
-	//job.ResetBuffer();
+	job.ResetBuffer();
 
 	//session->BeginBaseTask();
+
+	// 목표) 여기까지 도달해야한다.
+	//session->Connect(job);
 }
 
 unsigned int WINAPI NetworkService::ExecuteThread(void* arg)

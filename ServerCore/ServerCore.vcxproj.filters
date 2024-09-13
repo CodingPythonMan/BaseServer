@@ -13,6 +13,9 @@
     <Filter Include="Network">
       <UniqueIdentifier>{efe8a56d-e761-4e6f-9697-398d7eb5c94e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{e03de206-35fa-4567-92df-83accee2e38d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniDump.cpp">
@@ -26,9 +29,6 @@
     </ClCompile>
     <ClCompile Include="jsoncpp\json_writer.cpp">
       <Filter>Jsoncpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Listener.cpp">
-      <Filter>Network</Filter>
     </ClCompile>
     <ClCompile Include="NetworkService.cpp">
       <Filter>Network</Filter>
@@ -44,6 +44,12 @@
     </ClCompile>
     <ClCompile Include="DefineMacro.h">
       <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigParser.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseServer.cpp">
+      <Filter>Network</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -86,9 +92,6 @@
     <ClInclude Include="jsoncpp\writer.h">
       <Filter>Jsoncpp</Filter>
     </ClInclude>
-    <ClInclude Include="Listener.h">
-      <Filter>Network</Filter>
-    </ClInclude>
     <ClInclude Include="NetworkService.h">
       <Filter>Network</Filter>
     </ClInclude>
@@ -109,6 +112,15 @@
     </ClInclude>
     <ClInclude Include="DefineConst.h">
       <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigParser.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Language.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseServer.h">
+      <Filter>Network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

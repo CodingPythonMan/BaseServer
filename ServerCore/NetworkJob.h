@@ -29,6 +29,8 @@ public:
 
 	bool				Read(void* dest, int destSize);
 
+	void				ResetBuffer();
+
 private:
 	EJobType			m_type;
 

@@ -1,9 +1,9 @@
 #pragma once
-class BaseServer
+class ElasticServer
 {
 public:
-	BaseServer();
-	virtual ~BaseServer();
+	ElasticServer();
+	virtual ~ElasticServer();
 
 public:
 	bool Initialize();

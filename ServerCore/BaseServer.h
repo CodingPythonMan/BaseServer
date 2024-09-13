@@ -3,12 +3,13 @@
 #include "NetworkService.h"
 #include "ServerService.h"
 #include "Singleton.h"
+#include "ConfigParser.h"
 
-class Listener : public Singleton<Listener>
+class BaseServer
 {
 public:
-	Listener();
-	virtual ~Listener();
+	BaseServer();
+	virtual ~BaseServer();
 
 	bool					Start();
 

@@ -56,3 +56,9 @@ bool NetworkJob::Read(void* dest, int destSize)
 
 	return true;
 }
+
+void NetworkJob::ResetBuffer()
+{
+	m_writePos = 0;
+	m_readPos = 0;
+}

@@ -1,11 +1,11 @@
 ﻿#include "MiniDump.h"
-#include "BaseServer.h"
+#include "ElasticServer.h"
 
 int main()
 {
     MiniDump::InitExceptionHandler();
 
-    BaseServer server;
+    ElasticServer server;
     
     if (false == server.Initialize())
     {

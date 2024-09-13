@@ -34,4 +34,7 @@ private:
 	LockQueue<NetworkJob>						m_networkJobQueue;
 
 	std::mutex									m_sessionIDLock;
+
+	// 다른 서버는 따로 관리해야 한다.
+
 };
