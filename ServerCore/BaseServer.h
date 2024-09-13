@@ -12,6 +12,7 @@ public:
 	virtual ~BaseServer();
 
 	bool					Start();
+	bool					ReadyForListen(std::string address, int port);
 
 
 private:
