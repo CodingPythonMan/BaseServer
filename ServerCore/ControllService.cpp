@@ -1,16 +1,16 @@
-#include "NetworkService.h"
+#include "ControllService.h"
 #include <process.h>
 #include "DefineMacro.h"
 
-NetworkService::NetworkService() : m_handle(INVALID_HANDLE_VALUE), m_isTerminate(false)
+ControllService::ControllService() : m_handle(INVALID_HANDLE_VALUE), m_isTerminate(false)
 {
 }
 
-NetworkService::~NetworkService()
+ControllService::~ControllService()
 {
 }
 
-bool NetworkService::CreateThread()
+bool ControllService::CreateThread()
 {
 	m_handle = (HANDLE)_beginthreadex(nullptr, 0, ExecuteThread, this, 0, nullptr);
 	if (m_handle == nullptr || m_handle == INVALID_HANDLE_VALUE)
@@ -30,7 +30,7 @@ bool NetworkService::CreateThread()
 	return true;
 }
 
-void NetworkService::RunThread()
+void ControllService::RunThread()
 {
 	while (false == m_isTerminate)
 	{
@@ -68,12 +68,12 @@ void NetworkService::RunThread()
 	}
 }
 
-void NetworkService::SetTerminate()
+void ControllService::SetTerminate()
 {
 	m_isTerminate = true;
 }
 
-Session* NetworkService::FindSession(const SessionID& sessionID)
+Session* ControllService::FindSession(const SessionID& sessionID)
 {
 	// 여기서 세션락을 걸 수 있다.
 	auto iter = m_sessionMap.find(sessionID);
@@ -85,7 +85,7 @@ Session* NetworkService::FindSession(const SessionID& sessionID)
 	return iter->second;
 }
 
-bool NetworkService::AddSession(Session* session)
+bool ControllService::AddSession(Session* session)
 {
 	if (session == nullptr)
 	{
@@ -109,7 +109,7 @@ bool NetworkService::AddSession(Session* session)
 	return false;
 }
 
-void NetworkService::OnConnect(NetworkJob& job)
+void ControllService::OnConnect(NetworkJob& job)
 {
 	// 손님
 	Session* session = nullptr;
@@ -133,7 +133,7 @@ void NetworkService::OnConnect(NetworkJob& job)
 	//session->Connect(job);
 }
 
-unsigned int WINAPI NetworkService::ExecuteThread(void* arg)
+unsigned int WINAPI ControllService::ExecuteThread(void* arg)
 {
 	NetworkService& networkService = *(NetworkService*)arg;
 

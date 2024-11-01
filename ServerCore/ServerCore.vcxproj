@@ -27,9 +27,11 @@
     <ClCompile Include="jsoncpp\json_value.cpp" />
     <ClCompile Include="jsoncpp\json_writer.cpp" />
     <ClCompile Include="MiniDump.cpp" />
-    <ClCompile Include="NetworkService.cpp" />
-    <ClCompile Include="ServerService.cpp" />
+    <ClCompile Include="ControllService.cpp" />
+    <ClCompile Include="Service.cpp" />
     <ClCompile Include="Session.cpp" />
+    <ClCompile Include="SessionManager.cpp" />
+    <ClCompile Include="WorkService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseServer.h" />
@@ -51,10 +53,12 @@
     <ClInclude Include="jsoncpp\writer.h" />
     <ClInclude Include="LockQueue.h" />
     <ClInclude Include="MiniDump.h" />
-    <ClInclude Include="NetworkService.h" />
-    <ClInclude Include="ServerService.h" />
+    <ClInclude Include="ControllService.h" />
+    <ClInclude Include="Service.h" />
     <ClInclude Include="Session.h" />
+    <ClInclude Include="SessionManager.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="WorkService.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="jsoncpp\json_internalarray.inl" />

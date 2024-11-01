@@ -114,10 +114,16 @@ bool ConfigParser::LoadJson(const std::wstring& configFile, size_t fileSize)
 void ConfigParser::LoadCPUInfo()
 {
 	SYSTEM_INFO info;
-	// 현재 컴퓨터 시스템에 대한 정보를 포함합니다. 
+	// 현재 컴퓨터 시스템에 대한 정보를 포함한다.
 	GetSystemInfo(&info);
+
+	// 예전에 해당 함수를 이용해서 32bit 냐 64bit 까지 다룰 수 있었다.
+	// 이번엔, 프로세서 수 정도만 구한다.
 	m_processorCount = (int)info.dwNumberOfProcessors;
 
+	// 0개 이하로 두기엔 무리다.
 	if (m_processorCount <= 0)
+	{
 		m_processorCount = 1;
+	}
 }

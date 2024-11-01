@@ -1,15 +1,15 @@
-#include "ServerService.h"
+#include "WorkService.h"
 #include <process.h>
 
-ServerService::ServerService() : m_handle(INVALID_HANDLE_VALUE), m_isTerminate(false)
+WorkService::WorkService() : m_handle(INVALID_HANDLE_VALUE), m_isTerminate(false)
 {
 }
 
-ServerService::~ServerService()
+WorkService::~WorkService()
 {
 }
 
-bool ServerService::CreateThread()
+bool WorkService::CreateThread()
 {
 	m_handle = (HANDLE)_beginthreadex(nullptr, 0, ExecuteThread, this, 0, nullptr);
 	if (m_handle == nullptr || m_handle == INVALID_HANDLE_VALUE)
@@ -23,7 +23,7 @@ bool ServerService::CreateThread()
 	return true;
 }
 
-unsigned int WINAPI ServerService::ExecuteThread(void* arg)
+unsigned int WINAPI WorkService::ExecuteThread(void* arg)
 {
 	return 0;
 }

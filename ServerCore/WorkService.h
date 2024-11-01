@@ -1,11 +1,11 @@
 #pragma once
 #include "Session.h"
 
-class ServerService
+class WorkService
 {
 public:
-	ServerService();
-	virtual ~ServerService();
+	WorkService();
+	virtual ~WorkService();
 
 	bool		CreateThread();
 

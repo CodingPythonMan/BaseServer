@@ -4,11 +4,11 @@
 #include "NetworkJob.h"
 #include "LockQueue.h"
 
-class NetworkService
+class ControllService
 {
 public:
-	NetworkService();
-	virtual ~NetworkService();
+	ControllService();
+	virtual ~ControllService();
 
 	bool						CreateThread();
 

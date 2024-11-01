@@ -15,9 +15,15 @@
     <ClCompile Include="ElasticServer.cpp">
       <Filter>Server</Filter>
     </ClCompile>
+    <ClCompile Include="ElasticService.cpp">
+      <Filter>Server</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ElasticServer.h">
+      <Filter>Server</Filter>
+    </ClInclude>
+    <ClInclude Include="ElasticService.h">
       <Filter>Server</Filter>
     </ClInclude>
   </ItemGroup>
