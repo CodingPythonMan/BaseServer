@@ -4,6 +4,7 @@
 #include "WorkService.h"
 #include "Singleton.h"
 #include "ConfigParser.h"
+#include "NetworkEvent.h"
 
 class BaseServer
 {
@@ -12,6 +13,7 @@ public:
 	virtual ~BaseServer();
 
 	bool					Start();
+	void					BindEventSync(std::shared_ptr<NetworkEvent> eventSync);
 
 private:
 	// Has - a 관계로 NetworkController 와 NetworkWorker 를 갖게 한다.
@@ -20,4 +22,6 @@ private:
 	WorkService*				m_workService;
 
 	bool						m_running;
+
+	std::shared_ptr<NetworkEvent>	m_networkEvent;
 };

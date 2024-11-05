@@ -6,6 +6,7 @@ BaseServer::BaseServer()
 	m_controllService = new ControllService();
 	m_workService = new WorkService();
 	m_running = true;
+	m_networkEvent = nullptr;
 }
 
 BaseServer::~BaseServer()
@@ -22,13 +23,20 @@ bool BaseServer::Start()
 	// ServerService 스레드 생성
 	m_workService->CreateThread();
 
+	if (nullptr == m_networkEvent)
+	{
+		// host 를 못 찾았다.
+		return false;
+	}
+	//mNetworkEvent->SetTimeoutMS(ConfigParser::GetInstance()->GetServerInfo().TimeoutMS);
+
 	const std::string& name = ConfigParser::GetInstance()->GetServerInfo().Name;
 	const std::string& address = ConfigParser::GetInstance()->GetServerInfo().BindAddress;
 	const int& port = ConfigParser::GetInstance()->GetServerInfo().BindPort;
 
 	// 이 곳에 콜백 함수를 넣을 이유는 아직 찾지 못했다.
 	// 필요하면 해당 부분 넣으면 된다.
-	if (false == SessionManager::GetInstance()->ReadyForListen(address, port))
+	if (false == SessionManager::GetInstance()->ReadyForListen(m_networkEvent.get(), address, port))
 	{
 		printf("[Listen] 실패\n");
 	}
@@ -44,4 +52,9 @@ bool BaseServer::Start()
 	}
 
 	return true;
+}
+
+void BaseServer::BindEventSync(std::shared_ptr<NetworkEvent> eventSync)
+{
+	m_networkEvent = eventSync;
 }

@@ -14,6 +14,16 @@ Session::~Session()
 {
 }
 
+inline void Session::SetIP(std::string ip)
+{
+	m_ip = ip;
+}
+
+inline void Session::SetPort(int port)
+{
+	m_port = port;
+}
+
 bool Session::Close(ESocketClose closeType)
 {
 	if (m_socket == INVALID_SOCKET)

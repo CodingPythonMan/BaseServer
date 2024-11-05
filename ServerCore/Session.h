@@ -26,16 +26,19 @@ public:
 	Session();
 	virtual ~Session();
 
-	inline const SessionID& GetID() const { return m_sessionID; }
+	bool					m_isRecv;
 
-	bool					Close(ESocketClose closeType);
+public:
+	inline const SessionID&		GetID() const { return m_sessionID; }
+	inline void					SetIP(std::string ip);
+	inline void					SetPort(int port);
 
-	bool				m_isRecv;
+	bool						Close(ESocketClose closeType);
 
 private:
-	SessionID			m_sessionID;
-	SOCKET				m_socket;
+	SessionID				m_sessionID;
+	SOCKET					m_socket;
 
-	std::string			m_ip;
-	int					m_port;
+	std::string				m_ip;
+	int						m_port;
 };

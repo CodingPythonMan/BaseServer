@@ -10,6 +10,12 @@ bool SessionManager::ReadyForListen(const std::string& address, const int port)
 		return false;
 	}
 
+	// 이게 무슨 Event 인지 기술해두면 깔끔할 듯 하다.
+	// 무슨 역할을 하는지 파악 완료 후 작업
+	//session->SetEventSync();
+	session->SetIP(address);
+	session->SetPort(port);
+
 
 
 	return true;
