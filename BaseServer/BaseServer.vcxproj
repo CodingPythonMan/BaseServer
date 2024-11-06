@@ -137,11 +137,13 @@
   <ItemGroup>
     <ClCompile Include="ElasticServer.cpp" />
     <ClCompile Include="ElasticService.cpp" />
+    <ClCompile Include="GameServerEvent.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ElasticServer.h" />
     <ClInclude Include="ElasticService.h" />
+    <ClInclude Include="GameServerEvent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

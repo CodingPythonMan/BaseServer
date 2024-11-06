@@ -22,15 +22,25 @@ public:
 	NetworkJob();
 	virtual ~NetworkJob();
 
+public:
 	EJobType			GetType() { return m_type; }
 
 	char*				GetData();
 	int					GetDataSize();
 
+	char*				GetEmpty();
+
+	void				Ready(EJobType type);
+	void				Align();
+
+	bool				Write(void* src, int srcSize);
+
 	bool				Read(void* dest, int destSize);
 
 	void				ResetBuffer();
 
+private:
+	
 private:
 	EJobType			m_type;
 

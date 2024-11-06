@@ -73,7 +73,7 @@ void ControllService::SetTerminate()
 	m_isTerminate = true;
 }
 
-Session* ControllService::FindSession(const SessionID& sessionID)
+Session* ControllService::FindSession(unsigned int sessionID)
 {
 	// 여기서 세션락을 걸 수 있다.
 	auto iter = m_sessionMap.find(sessionID);
@@ -135,10 +135,10 @@ void ControllService::OnConnect(NetworkJob& job)
 
 unsigned int WINAPI ControllService::ExecuteThread(void* arg)
 {
-	NetworkService& networkService = *(NetworkService*)arg;
+	ControllService& controllService = *(ControllService*)arg;
 
-	networkService.RunThread();
-	networkService.SetTerminate();
+	controllService.RunThread();
+	controllService.SetTerminate();
 
 	return 0;
 }

@@ -1,7 +1,8 @@
+#include <memory>
 #include "ElasticServer.h"
 #include "BaseServer.h"
-
-#include <memory>
+#include "SessionManager.h"
+#include "GameServerEvent.h"
 
 ElasticServer::ElasticServer()
 {
@@ -18,7 +19,7 @@ bool ElasticServer::Initialize()
 	ConfigParser::GetInstance()->LoadConfig(L"GameConfig.json");
 
 	// 다양한 Manager 들에 대한 코드가 들어갈 수 있다.
-	
+	SessionManager::CreateInstance();
 
 	return true;
 }
@@ -26,12 +27,12 @@ bool ElasticServer::Initialize()
 bool ElasticServer::Run()
 {
 	auto server = std::make_shared<BaseServer>();
+	auto serverEvent = std::make_shared<GameServerEvent>();
 
-	// 그 이유를 정확히 조사하기 위해 new 를 통해 Server 를 만들었다.
+	server->BindEventSync(serverEvent);
 
 	server->Start();
 
-	
 
 	return false;
 }

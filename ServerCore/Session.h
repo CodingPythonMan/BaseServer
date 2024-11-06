@@ -2,6 +2,7 @@
 #include "DefineType.h"
 #include <ws2tcpip.h>
 #include <string>
+#include "NetworkEvent.h"
 
 #pragma comment(lib, "ws2_32.lib")
 
@@ -29,11 +30,12 @@ public:
 	bool					m_isRecv;
 
 public:
-	inline const SessionID&		GetID() const { return m_sessionID; }
-	inline void					SetIP(std::string ip);
-	inline void					SetPort(int port);
+	inline SessionID		GetID() const { return m_sessionID; }
+	inline void				SetEvent(NetworkEvent* networkEvent) { m_networkEvent = networkEvent; }
+	inline void				SetIP(std::string ip) { m_ip = ip; }
+	inline void				SetPort(int port) { m_port = port; }
 
-	bool						Close(ESocketClose closeType);
+	bool					Close(ESocketClose closeType);
 
 private:
 	SessionID				m_sessionID;
@@ -41,4 +43,5 @@ private:
 
 	std::string				m_ip;
 	int						m_port;
+	NetworkEvent*			m_networkEvent;
 };

@@ -1,5 +1,4 @@
 #include "Session.h"
-#include <iostream>
 
 Session::Session()
 {
@@ -8,20 +7,11 @@ Session::Session()
 	m_socket = INVALID_SOCKET;
 	m_ip = "";
 	m_port = 0;
+	m_networkEvent = nullptr;
 }
 
 Session::~Session()
 {
-}
-
-inline void Session::SetIP(std::string ip)
-{
-	m_ip = ip;
-}
-
-inline void Session::SetPort(int port)
-{
-	m_port = port;
 }
 
 bool Session::Close(ESocketClose closeType)

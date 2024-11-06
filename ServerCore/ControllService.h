@@ -16,7 +16,7 @@ private:
 	void						RunThread();
 	void						SetTerminate();
 
-	Session*					FindSession(const SessionID& sessionID);
+	Session*					FindSession(const unsigned int sessionID);
 	bool						AddSession(Session* session);
 
 	static unsigned int WINAPI	ExecuteThread(void* arg);

@@ -60,6 +60,9 @@
     <ClCompile Include="WorkService.cpp">
       <Filter>Network</Filter>
     </ClCompile>
+    <ClCompile Include="NetworkEvent.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
@@ -104,9 +107,6 @@
     <ClInclude Include="ControllService.h">
       <Filter>Network</Filter>
     </ClInclude>
-    <ClInclude Include="DefineType.h">
-      <Filter>Utils</Filter>
-    </ClInclude>
     <ClInclude Include="Session.h">
       <Filter>Network</Filter>
     </ClInclude>
@@ -136,6 +136,12 @@
     </ClInclude>
     <ClInclude Include="WorkService.h">
       <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkEvent.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="DefineType.h">
+      <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

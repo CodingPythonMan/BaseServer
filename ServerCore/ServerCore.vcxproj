@@ -22,6 +22,7 @@
     <ClCompile Include="BaseServer.cpp" />
     <ClCompile Include="ConfigParser.cpp" />
     <ClCompile Include="DefineMacro.h" />
+    <ClCompile Include="NetworkEvent.cpp" />
     <ClCompile Include="NetworkJob.cpp" />
     <ClCompile Include="jsoncpp\json_reader.cpp" />
     <ClCompile Include="jsoncpp\json_value.cpp" />
@@ -39,6 +40,7 @@
     <ClInclude Include="DefineConst.h" />
     <ClInclude Include="DefineType.h" />
     <ClInclude Include="Language.h" />
+    <ClInclude Include="NetworkEvent.h" />
     <ClInclude Include="NetworkJob.h" />
     <ClInclude Include="json.h" />
     <ClInclude Include="jsoncpp\autolink.h" />
