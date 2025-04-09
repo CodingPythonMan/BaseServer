@@ -1,12 +1,17 @@
 #include "MiniDump.h"
+#include <WS2tcpip.h>
 #include <windows.h>
 #include <filesystem>
 #include <minidumpapiset.h>
-#include <BugTrap.h>
+#include "BugTrap.h"
+
+#define CATCH_UNHANDELED_EXCEPTION_V1
 
 #pragma comment(lib, "BugTrapU-x64.lib")
 
-void MiniDump::InitExceptionHandler(bool autoRestart)
+bool	mIsLive = false;
+
+void MiniDump::SetExceptionHandler(bool autoRestart)
 {
 	// 현재 실행파일 이름
 	WCHAR appName[MAX_PATH] = {};
@@ -26,7 +31,7 @@ void MiniDump::InitExceptionHandler(bool autoRestart)
 		;
 
 	// BugTrap 등록
-	BT_InstallSehFilter(); 
+	BT_InstallSehFilter();
 	BT_SetAppName(fullPath.stem().c_str());
 
 	// autoRestart 쓰기
@@ -46,4 +51,9 @@ void MiniDump::InitExceptionHandler(bool autoRestart)
 	BT_SetReportFilePath(dumpPath.c_str());
 
 	BT_SetReportFormat(BTRF_XML);
+}
+
+void MiniDump::SetDestroyMode(bool onoff)
+{
+	mIsLive = onoff;
 }

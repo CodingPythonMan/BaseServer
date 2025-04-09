@@ -1,9 +1,10 @@
 #pragma once
+#include <WS2tcpip.h>
 #include <windows.h>
 
 #include <string>
 
-#include "Singleton.h"
+#include "RefSingleton.h"
 #include "Language.h"
 
 struct ServerInfo 
@@ -16,7 +17,7 @@ struct ServerInfo
 	int				MaxConnection;
 };
 
-class ConfigParser : public Singleton<ConfigParser>
+class ConfigParser : public RefSingleton<ConfigParser>
 {
 public:
 	bool					LoadConfig(const std::wstring& configFile);

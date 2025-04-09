@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{647c8f2a-8a29-41a6-8df3-729fb75d2d4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{96452af7-c27e-407e-ace9-2ac84938124c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config\jsoncpp">
+      <UniqueIdentifier>{4e0cdbf1-ecf9-46cc-b3ec-a8bce5f3e0bf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MiniDump.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="RefSingleton.h">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigParser.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="jsoncpp\json_reader.cpp">
+      <Filter>Config\jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="jsoncpp\json_value.cpp">
+      <Filter>Config\jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="jsoncpp\json_writer.cpp">
+      <Filter>Config\jsoncpp</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MiniDump.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Language.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigParser.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="json.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\autolink.h">
+      <Filter>Config\jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\config.h">
+      <Filter>Config\jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\features.h">
+      <Filter>Config\jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\forwards.h">
+      <Filter>Config\jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\json.h">
+      <Filter>Config\jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\json_batchallocator.h">
+      <Filter>Config\jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\json_tool.h">
+      <Filter>Config\jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\reader.h">
+      <Filter>Config\jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\value.h">
+      <Filter>Config\jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="jsoncpp\writer.h">
+      <Filter>Config\jsoncpp</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="jsoncpp\json_internalarray.inl">
+      <Filter>Config\jsoncpp</Filter>
+    </None>
+    <None Include="jsoncpp\json_internalmap.inl">
+      <Filter>Config\jsoncpp</Filter>
+    </None>
+    <None Include="jsoncpp\json_valueiterator.inl">
+      <Filter>Config\jsoncpp</Filter>
+    </None>
+  </ItemGroup>
+</Project>
