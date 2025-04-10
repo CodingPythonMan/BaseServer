@@ -4,6 +4,12 @@
     <Filter Include="Main">
       <UniqueIdentifier>{239fe89b-0062-4389-9c79-295fc9764cdc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{8d116e3d-f1c6-4933-a2fa-7a7f4b036580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Setting">
+      <UniqueIdentifier>{6a51894c-4126-4864-bfef-8a0b7f66c74b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -12,10 +18,22 @@
     <ClCompile Include="GameServer.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="Environment.cpp">
+      <Filter>Setting</Filter>
+    </ClCompile>
+    <ClCompile Include="GameService.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameServer.h">
       <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment.h">
+      <Filter>Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="GameService.h">
+      <Filter>Contents</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

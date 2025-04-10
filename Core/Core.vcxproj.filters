@@ -10,6 +10,18 @@
     <Filter Include="Config\jsoncpp">
       <UniqueIdentifier>{4e0cdbf1-ecf9-46cc-b3ec-a8bce5f3e0bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{39a05daf-3040-4aa1-a86a-abe302b4d4ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\Packet">
+      <UniqueIdentifier>{eaa4b0f6-45bd-4647-90f0-eb180332f19d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Memory">
+      <UniqueIdentifier>{c5b0e19d-75b2-48f3-8bb6-dca266e9b115}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Service">
+      <UniqueIdentifier>{dfecbcd5-0878-4a1d-b737-1636c333b71c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniDump.cpp">
@@ -29,6 +41,30 @@
     </ClCompile>
     <ClCompile Include="jsoncpp\json_writer.cpp">
       <Filter>Config\jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Packet.cpp">
+      <Filter>Network\Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketPayload.cpp">
+      <Filter>Network\Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol.pb.cc">
+      <Filter>Network\Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="TickRunner.cpp">
+      <Filter>Service</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeUtil.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkEvent.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Service.cpp">
+      <Filter>Service</Filter>
+    </ClCompile>
+    <ClCompile Include="InternalPacketHandler.cpp">
+      <Filter>Service</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +110,42 @@
     <ClInclude Include="jsoncpp\writer.h">
       <Filter>Config\jsoncpp</Filter>
     </ClInclude>
+    <ClInclude Include="Packet.h">
+      <Filter>Network\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketPayload.h">
+      <Filter>Network\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedObject.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPool.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol.pb.h">
+      <Filter>Network\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockingQueue.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="InternalPacketHandler.h">
+      <Filter>Service</Filter>
+    </ClInclude>
+    <ClInclude Include="InternalPacket.h">
+      <Filter>Network\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="TickRunner.h">
+      <Filter>Service</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeUtil.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkEvent.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Service.h">
+      <Filter>Service</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="jsoncpp\json_internalarray.inl">
@@ -84,6 +156,9 @@
     </None>
     <None Include="jsoncpp\json_valueiterator.inl">
       <Filter>Config\jsoncpp</Filter>
+    </None>
+    <None Include="..\Library\Protobuf\bin\Protocol.proto">
+      <Filter>Network\Packet</Filter>
     </None>
   </ItemGroup>
 </Project>

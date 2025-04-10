@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BlockingQueue.h" />
     <ClInclude Include="ConfigParser.h" />
+    <ClInclude Include="InternalPacket.h" />
+    <ClInclude Include="InternalPacketHandler.h" />
     <ClInclude Include="json.h" />
     <ClInclude Include="jsoncpp\autolink.h" />
     <ClInclude Include="jsoncpp\config.h" />
@@ -33,16 +36,34 @@
     <ClInclude Include="jsoncpp\writer.h" />
     <ClInclude Include="Language.h" />
     <ClInclude Include="MiniDump.h" />
+    <ClInclude Include="NetworkEvent.h" />
+    <ClInclude Include="ObjectPool.h" />
+    <ClInclude Include="Packet.h" />
+    <ClInclude Include="PacketPayload.h" />
+    <ClInclude Include="Protocol.pb.h" />
+    <ClInclude Include="Service.h" />
+    <ClInclude Include="SharedObject.h" />
+    <ClInclude Include="TickRunner.h" />
+    <ClInclude Include="TimeUtil.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConfigParser.cpp" />
+    <ClCompile Include="InternalPacketHandler.cpp" />
     <ClCompile Include="jsoncpp\json_reader.cpp" />
     <ClCompile Include="jsoncpp\json_value.cpp" />
     <ClCompile Include="jsoncpp\json_writer.cpp" />
     <ClCompile Include="MiniDump.cpp" />
+    <ClCompile Include="NetworkEvent.cpp" />
+    <ClCompile Include="Packet.cpp" />
+    <ClCompile Include="PacketPayload.cpp" />
+    <ClCompile Include="Protocol.pb.cc" />
     <ClCompile Include="RefSingleton.h" />
+    <ClCompile Include="Service.cpp" />
+    <ClCompile Include="TickRunner.cpp" />
+    <ClCompile Include="TimeUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Library\Protobuf\bin\Protocol.proto" />
     <None Include="jsoncpp\json_internalarray.inl" />
     <None Include="jsoncpp\json_internalmap.inl" />
     <None Include="jsoncpp\json_valueiterator.inl" />
@@ -101,11 +122,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)Library\Core\</OutDir>
-    <IncludePath>$(SolutionDir)Library\BugTrap\include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Library\BugTrap\include\;$(SolutionDir)Library\Protobuf\include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)Library\Core\</OutDir>
-    <IncludePath>$(SolutionDir)Library\BugTrap\include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Library\BugTrap\include\;$(SolutionDir)Library\Protobuf\include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
