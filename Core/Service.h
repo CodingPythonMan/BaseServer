@@ -3,8 +3,9 @@
 #include <windows.h>
 #include "TickRunner.h"
 #include "InternalPacketHandler.h"
+#include "PacketHandler.h"
 
-class Service : public TickRunner, public InternalPacketHandler
+class Service : public TickRunner, public PacketHandler, public InternalPacketHandler
 {
 public:
 	Service() = default;
@@ -16,7 +17,7 @@ protected:
 	virtual unsigned int	Run();
 
 private:
-	static unsigned int WINAPI ThreadProc(void* self);
+	static unsigned int WINAPI Work(void* self);
 
 protected:
 	bool	mIsStop = false;

@@ -2,6 +2,7 @@
 
 bool Service::CreateThread()
 {
+	mThreadHandle = reinterpret_cast<HANDLE>(::_beginthreadex(nullptr, 0, Work, this, 0, nullptr));
 	return false;
 }
 
@@ -11,13 +12,14 @@ unsigned int Service::Run()
 	{
 		Update();
 
+		_ProcessPacket();
 		_ProcessInternalPacket();
 	}
 
 	return 0;
 }
 
-unsigned int __stdcall Service::ThreadProc(void* self)
+unsigned int __stdcall Service::Work(void* self)
 {
-	return 0;
+	return static_cast<Service*>(self)->Run();
 }

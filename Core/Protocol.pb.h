@@ -29,6 +29,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -44,6 +45,12 @@ struct TableStruct_Protocol_2eproto {
   static const uint32_t offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_Protocol_2eproto;
+class CSLog1Req;
+struct CSLog1ReqDefaultTypeInternal;
+extern CSLog1ReqDefaultTypeInternal _CSLog1Req_default_instance_;
+class CSLog2Req;
+struct CSLog2ReqDefaultTypeInternal;
+extern CSLog2ReqDefaultTypeInternal _CSLog2Req_default_instance_;
 class SLLog1Req;
 struct SLLog1ReqDefaultTypeInternal;
 extern SLLog1ReqDefaultTypeInternal _SLLog1Req_default_instance_;
@@ -51,11 +58,430 @@ class SLLog2Req;
 struct SLLog2ReqDefaultTypeInternal;
 extern SLLog2ReqDefaultTypeInternal _SLLog2Req_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
+template<> ::CSLog1Req* Arena::CreateMaybeMessage<::CSLog1Req>(Arena*);
+template<> ::CSLog2Req* Arena::CreateMaybeMessage<::CSLog2Req>(Arena*);
 template<> ::SLLog1Req* Arena::CreateMaybeMessage<::SLLog1Req>(Arena*);
 template<> ::SLLog2Req* Arena::CreateMaybeMessage<::SLLog2Req>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 
+enum MsgID : int {
+  None = 0,
+  SL_Log1Req = 1000,
+  SL_Log2Req = 1001,
+  CS_Log1Req = 10000,
+  CS_Log2Req = 10001,
+  MsgID_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  MsgID_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool MsgID_IsValid(int value);
+constexpr MsgID MsgID_MIN = None;
+constexpr MsgID MsgID_MAX = CS_Log2Req;
+constexpr int MsgID_ARRAYSIZE = MsgID_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MsgID_descriptor();
+template<typename T>
+inline const std::string& MsgID_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, MsgID>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function MsgID_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    MsgID_descriptor(), enum_t_value);
+}
+inline bool MsgID_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, MsgID* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<MsgID>(
+    MsgID_descriptor(), name, value);
+}
 // ===================================================================
+
+class CSLog1Req final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CSLog1Req) */ {
+ public:
+  inline CSLog1Req() : CSLog1Req(nullptr) {}
+  ~CSLog1Req() override;
+  explicit PROTOBUF_CONSTEXPR CSLog1Req(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CSLog1Req(const CSLog1Req& from);
+  CSLog1Req(CSLog1Req&& from) noexcept
+    : CSLog1Req() {
+    *this = ::std::move(from);
+  }
+
+  inline CSLog1Req& operator=(const CSLog1Req& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CSLog1Req& operator=(CSLog1Req&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CSLog1Req& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CSLog1Req* internal_default_instance() {
+    return reinterpret_cast<const CSLog1Req*>(
+               &_CSLog1Req_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(CSLog1Req& a, CSLog1Req& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CSLog1Req* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CSLog1Req* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CSLog1Req* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CSLog1Req>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CSLog1Req& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CSLog1Req& from) {
+    CSLog1Req::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CSLog1Req* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CSLog1Req";
+  }
+  protected:
+  explicit CSLog1Req(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTextFieldNumber = 1,
+    kAFieldNumber = 2,
+    kBFieldNumber = 3,
+    kMsgIDFieldNumber = 99,
+  };
+  // string text = 1;
+  void clear_text();
+  const std::string& text() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_text(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_text();
+  PROTOBUF_NODISCARD std::string* release_text();
+  void set_allocated_text(std::string* text);
+  private:
+  const std::string& _internal_text() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_text(const std::string& value);
+  std::string* _internal_mutable_text();
+  public:
+
+  // int32 a = 2;
+  void clear_a();
+  int32_t a() const;
+  void set_a(int32_t value);
+  private:
+  int32_t _internal_a() const;
+  void _internal_set_a(int32_t value);
+  public:
+
+  // int32 b = 3;
+  void clear_b();
+  int32_t b() const;
+  void set_b(int32_t value);
+  private:
+  int32_t _internal_b() const;
+  void _internal_set_b(int32_t value);
+  public:
+
+  // .MsgID msgID = 99;
+  void clear_msgid();
+  ::MsgID msgid() const;
+  void set_msgid(::MsgID value);
+  private:
+  ::MsgID _internal_msgid() const;
+  void _internal_set_msgid(::MsgID value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CSLog1Req)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr text_;
+    int32_t a_;
+    int32_t b_;
+    int msgid_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_Protocol_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CSLog2Req final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CSLog2Req) */ {
+ public:
+  inline CSLog2Req() : CSLog2Req(nullptr) {}
+  ~CSLog2Req() override;
+  explicit PROTOBUF_CONSTEXPR CSLog2Req(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CSLog2Req(const CSLog2Req& from);
+  CSLog2Req(CSLog2Req&& from) noexcept
+    : CSLog2Req() {
+    *this = ::std::move(from);
+  }
+
+  inline CSLog2Req& operator=(const CSLog2Req& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CSLog2Req& operator=(CSLog2Req&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CSLog2Req& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CSLog2Req* internal_default_instance() {
+    return reinterpret_cast<const CSLog2Req*>(
+               &_CSLog2Req_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(CSLog2Req& a, CSLog2Req& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CSLog2Req* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CSLog2Req* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CSLog2Req* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CSLog2Req>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CSLog2Req& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CSLog2Req& from) {
+    CSLog2Req::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CSLog2Req* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CSLog2Req";
+  }
+  protected:
+  explicit CSLog2Req(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kUniqueIDFieldNumber = 1,
+    kDirectionFieldNumber = 2,
+    kIsMoveFieldNumber = 3,
+    kXFieldNumber = 4,
+    kYFieldNumber = 5,
+    kMsgIDFieldNumber = 99,
+  };
+  // int64 UniqueID = 1;
+  void clear_uniqueid();
+  int64_t uniqueid() const;
+  void set_uniqueid(int64_t value);
+  private:
+  int64_t _internal_uniqueid() const;
+  void _internal_set_uniqueid(int64_t value);
+  public:
+
+  // int32 Direction = 2;
+  void clear_direction();
+  int32_t direction() const;
+  void set_direction(int32_t value);
+  private:
+  int32_t _internal_direction() const;
+  void _internal_set_direction(int32_t value);
+  public:
+
+  // bool IsMove = 3;
+  void clear_ismove();
+  bool ismove() const;
+  void set_ismove(bool value);
+  private:
+  bool _internal_ismove() const;
+  void _internal_set_ismove(bool value);
+  public:
+
+  // float X = 4;
+  void clear_x();
+  float x() const;
+  void set_x(float value);
+  private:
+  float _internal_x() const;
+  void _internal_set_x(float value);
+  public:
+
+  // float Y = 5;
+  void clear_y();
+  float y() const;
+  void set_y(float value);
+  private:
+  float _internal_y() const;
+  void _internal_set_y(float value);
+  public:
+
+  // .MsgID msgID = 99;
+  void clear_msgid();
+  ::MsgID msgid() const;
+  void set_msgid(::MsgID value);
+  private:
+  ::MsgID _internal_msgid() const;
+  void _internal_set_msgid(::MsgID value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CSLog2Req)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    int64_t uniqueid_;
+    int32_t direction_;
+    bool ismove_;
+    float x_;
+    float y_;
+    int msgid_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_Protocol_2eproto;
+};
+// -------------------------------------------------------------------
 
 class SLLog1Req final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:SLLog1Req) */ {
@@ -105,7 +531,7 @@ class SLLog1Req final :
                &_SLLog1Req_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    2;
 
   friend void swap(SLLog1Req& a, SLLog1Req& b) {
     a.Swap(&b);
@@ -181,6 +607,7 @@ class SLLog1Req final :
     kTextFieldNumber = 1,
     kAFieldNumber = 2,
     kBFieldNumber = 3,
+    kMsgIDFieldNumber = 99,
   };
   // string text = 1;
   void clear_text();
@@ -214,6 +641,15 @@ class SLLog1Req final :
   void _internal_set_b(int32_t value);
   public:
 
+  // .MsgID msgID = 99;
+  void clear_msgid();
+  ::MsgID msgid() const;
+  void set_msgid(::MsgID value);
+  private:
+  ::MsgID _internal_msgid() const;
+  void _internal_set_msgid(::MsgID value);
+  public:
+
   // @@protoc_insertion_point(class_scope:SLLog1Req)
  private:
   class _Internal;
@@ -225,6 +661,7 @@ class SLLog1Req final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr text_;
     int32_t a_;
     int32_t b_;
+    int msgid_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -280,7 +717,7 @@ class SLLog2Req final :
                &_SLLog2Req_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    3;
 
   friend void swap(SLLog2Req& a, SLLog2Req& b) {
     a.Swap(&b);
@@ -358,6 +795,7 @@ class SLLog2Req final :
     kIsMoveFieldNumber = 3,
     kXFieldNumber = 4,
     kYFieldNumber = 5,
+    kMsgIDFieldNumber = 99,
   };
   // int64 UniqueID = 1;
   void clear_uniqueid();
@@ -404,6 +842,15 @@ class SLLog2Req final :
   void _internal_set_y(float value);
   public:
 
+  // .MsgID msgID = 99;
+  void clear_msgid();
+  ::MsgID msgid() const;
+  void set_msgid(::MsgID value);
+  private:
+  ::MsgID _internal_msgid() const;
+  void _internal_set_msgid(::MsgID value);
+  public:
+
   // @@protoc_insertion_point(class_scope:SLLog2Req)
  private:
   class _Internal;
@@ -417,6 +864,7 @@ class SLLog2Req final :
     bool ismove_;
     float x_;
     float y_;
+    int msgid_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -431,7 +879,265 @@ class SLLog2Req final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// CSLog1Req
+
+// .MsgID msgID = 99;
+inline void CSLog1Req::clear_msgid() {
+  _impl_.msgid_ = 0;
+}
+inline ::MsgID CSLog1Req::_internal_msgid() const {
+  return static_cast< ::MsgID >(_impl_.msgid_);
+}
+inline ::MsgID CSLog1Req::msgid() const {
+  // @@protoc_insertion_point(field_get:CSLog1Req.msgID)
+  return _internal_msgid();
+}
+inline void CSLog1Req::_internal_set_msgid(::MsgID value) {
+  
+  _impl_.msgid_ = value;
+}
+inline void CSLog1Req::set_msgid(::MsgID value) {
+  _internal_set_msgid(value);
+  // @@protoc_insertion_point(field_set:CSLog1Req.msgID)
+}
+
+// string text = 1;
+inline void CSLog1Req::clear_text() {
+  _impl_.text_.ClearToEmpty();
+}
+inline const std::string& CSLog1Req::text() const {
+  // @@protoc_insertion_point(field_get:CSLog1Req.text)
+  return _internal_text();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CSLog1Req::set_text(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.text_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CSLog1Req.text)
+}
+inline std::string* CSLog1Req::mutable_text() {
+  std::string* _s = _internal_mutable_text();
+  // @@protoc_insertion_point(field_mutable:CSLog1Req.text)
+  return _s;
+}
+inline const std::string& CSLog1Req::_internal_text() const {
+  return _impl_.text_.Get();
+}
+inline void CSLog1Req::_internal_set_text(const std::string& value) {
+  
+  _impl_.text_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CSLog1Req::_internal_mutable_text() {
+  
+  return _impl_.text_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CSLog1Req::release_text() {
+  // @@protoc_insertion_point(field_release:CSLog1Req.text)
+  return _impl_.text_.Release();
+}
+inline void CSLog1Req::set_allocated_text(std::string* text) {
+  if (text != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.text_.SetAllocated(text, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.text_.IsDefault()) {
+    _impl_.text_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CSLog1Req.text)
+}
+
+// int32 a = 2;
+inline void CSLog1Req::clear_a() {
+  _impl_.a_ = 0;
+}
+inline int32_t CSLog1Req::_internal_a() const {
+  return _impl_.a_;
+}
+inline int32_t CSLog1Req::a() const {
+  // @@protoc_insertion_point(field_get:CSLog1Req.a)
+  return _internal_a();
+}
+inline void CSLog1Req::_internal_set_a(int32_t value) {
+  
+  _impl_.a_ = value;
+}
+inline void CSLog1Req::set_a(int32_t value) {
+  _internal_set_a(value);
+  // @@protoc_insertion_point(field_set:CSLog1Req.a)
+}
+
+// int32 b = 3;
+inline void CSLog1Req::clear_b() {
+  _impl_.b_ = 0;
+}
+inline int32_t CSLog1Req::_internal_b() const {
+  return _impl_.b_;
+}
+inline int32_t CSLog1Req::b() const {
+  // @@protoc_insertion_point(field_get:CSLog1Req.b)
+  return _internal_b();
+}
+inline void CSLog1Req::_internal_set_b(int32_t value) {
+  
+  _impl_.b_ = value;
+}
+inline void CSLog1Req::set_b(int32_t value) {
+  _internal_set_b(value);
+  // @@protoc_insertion_point(field_set:CSLog1Req.b)
+}
+
+// -------------------------------------------------------------------
+
+// CSLog2Req
+
+// .MsgID msgID = 99;
+inline void CSLog2Req::clear_msgid() {
+  _impl_.msgid_ = 0;
+}
+inline ::MsgID CSLog2Req::_internal_msgid() const {
+  return static_cast< ::MsgID >(_impl_.msgid_);
+}
+inline ::MsgID CSLog2Req::msgid() const {
+  // @@protoc_insertion_point(field_get:CSLog2Req.msgID)
+  return _internal_msgid();
+}
+inline void CSLog2Req::_internal_set_msgid(::MsgID value) {
+  
+  _impl_.msgid_ = value;
+}
+inline void CSLog2Req::set_msgid(::MsgID value) {
+  _internal_set_msgid(value);
+  // @@protoc_insertion_point(field_set:CSLog2Req.msgID)
+}
+
+// int64 UniqueID = 1;
+inline void CSLog2Req::clear_uniqueid() {
+  _impl_.uniqueid_ = int64_t{0};
+}
+inline int64_t CSLog2Req::_internal_uniqueid() const {
+  return _impl_.uniqueid_;
+}
+inline int64_t CSLog2Req::uniqueid() const {
+  // @@protoc_insertion_point(field_get:CSLog2Req.UniqueID)
+  return _internal_uniqueid();
+}
+inline void CSLog2Req::_internal_set_uniqueid(int64_t value) {
+  
+  _impl_.uniqueid_ = value;
+}
+inline void CSLog2Req::set_uniqueid(int64_t value) {
+  _internal_set_uniqueid(value);
+  // @@protoc_insertion_point(field_set:CSLog2Req.UniqueID)
+}
+
+// int32 Direction = 2;
+inline void CSLog2Req::clear_direction() {
+  _impl_.direction_ = 0;
+}
+inline int32_t CSLog2Req::_internal_direction() const {
+  return _impl_.direction_;
+}
+inline int32_t CSLog2Req::direction() const {
+  // @@protoc_insertion_point(field_get:CSLog2Req.Direction)
+  return _internal_direction();
+}
+inline void CSLog2Req::_internal_set_direction(int32_t value) {
+  
+  _impl_.direction_ = value;
+}
+inline void CSLog2Req::set_direction(int32_t value) {
+  _internal_set_direction(value);
+  // @@protoc_insertion_point(field_set:CSLog2Req.Direction)
+}
+
+// bool IsMove = 3;
+inline void CSLog2Req::clear_ismove() {
+  _impl_.ismove_ = false;
+}
+inline bool CSLog2Req::_internal_ismove() const {
+  return _impl_.ismove_;
+}
+inline bool CSLog2Req::ismove() const {
+  // @@protoc_insertion_point(field_get:CSLog2Req.IsMove)
+  return _internal_ismove();
+}
+inline void CSLog2Req::_internal_set_ismove(bool value) {
+  
+  _impl_.ismove_ = value;
+}
+inline void CSLog2Req::set_ismove(bool value) {
+  _internal_set_ismove(value);
+  // @@protoc_insertion_point(field_set:CSLog2Req.IsMove)
+}
+
+// float X = 4;
+inline void CSLog2Req::clear_x() {
+  _impl_.x_ = 0;
+}
+inline float CSLog2Req::_internal_x() const {
+  return _impl_.x_;
+}
+inline float CSLog2Req::x() const {
+  // @@protoc_insertion_point(field_get:CSLog2Req.X)
+  return _internal_x();
+}
+inline void CSLog2Req::_internal_set_x(float value) {
+  
+  _impl_.x_ = value;
+}
+inline void CSLog2Req::set_x(float value) {
+  _internal_set_x(value);
+  // @@protoc_insertion_point(field_set:CSLog2Req.X)
+}
+
+// float Y = 5;
+inline void CSLog2Req::clear_y() {
+  _impl_.y_ = 0;
+}
+inline float CSLog2Req::_internal_y() const {
+  return _impl_.y_;
+}
+inline float CSLog2Req::y() const {
+  // @@protoc_insertion_point(field_get:CSLog2Req.Y)
+  return _internal_y();
+}
+inline void CSLog2Req::_internal_set_y(float value) {
+  
+  _impl_.y_ = value;
+}
+inline void CSLog2Req::set_y(float value) {
+  _internal_set_y(value);
+  // @@protoc_insertion_point(field_set:CSLog2Req.Y)
+}
+
+// -------------------------------------------------------------------
+
 // SLLog1Req
+
+// .MsgID msgID = 99;
+inline void SLLog1Req::clear_msgid() {
+  _impl_.msgid_ = 0;
+}
+inline ::MsgID SLLog1Req::_internal_msgid() const {
+  return static_cast< ::MsgID >(_impl_.msgid_);
+}
+inline ::MsgID SLLog1Req::msgid() const {
+  // @@protoc_insertion_point(field_get:SLLog1Req.msgID)
+  return _internal_msgid();
+}
+inline void SLLog1Req::_internal_set_msgid(::MsgID value) {
+  
+  _impl_.msgid_ = value;
+}
+inline void SLLog1Req::set_msgid(::MsgID value) {
+  _internal_set_msgid(value);
+  // @@protoc_insertion_point(field_set:SLLog1Req.msgID)
+}
 
 // string text = 1;
 inline void SLLog1Req::clear_text() {
@@ -526,6 +1232,26 @@ inline void SLLog1Req::set_b(int32_t value) {
 // -------------------------------------------------------------------
 
 // SLLog2Req
+
+// .MsgID msgID = 99;
+inline void SLLog2Req::clear_msgid() {
+  _impl_.msgid_ = 0;
+}
+inline ::MsgID SLLog2Req::_internal_msgid() const {
+  return static_cast< ::MsgID >(_impl_.msgid_);
+}
+inline ::MsgID SLLog2Req::msgid() const {
+  // @@protoc_insertion_point(field_get:SLLog2Req.msgID)
+  return _internal_msgid();
+}
+inline void SLLog2Req::_internal_set_msgid(::MsgID value) {
+  
+  _impl_.msgid_ = value;
+}
+inline void SLLog2Req::set_msgid(::MsgID value) {
+  _internal_set_msgid(value);
+  // @@protoc_insertion_point(field_set:SLLog2Req.msgID)
+}
 
 // int64 UniqueID = 1;
 inline void SLLog2Req::clear_uniqueid() {
@@ -632,9 +1358,23 @@ inline void SLLog2Req::set_y(float value) {
 #endif  // __GNUC__
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::MsgID> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::MsgID>() {
+  return ::MsgID_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 

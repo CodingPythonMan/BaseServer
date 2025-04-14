@@ -66,6 +66,9 @@
     <ClCompile Include="InternalPacketHandler.cpp">
       <Filter>Service</Filter>
     </ClCompile>
+    <ClCompile Include="PacketHandler.cpp">
+      <Filter>Service</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniDump.h">
@@ -144,6 +147,9 @@
       <Filter>Network</Filter>
     </ClInclude>
     <ClInclude Include="Service.h">
+      <Filter>Service</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketHandler.h">
       <Filter>Service</Filter>
     </ClInclude>
   </ItemGroup>

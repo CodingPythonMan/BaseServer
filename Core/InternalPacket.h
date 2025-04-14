@@ -1,6 +1,10 @@
 #pragma once
 #include "SharedObject.h"
 
+#define	MakeInternalPacket(host, data)		std::shared_ptr<InternalPacket> packet = std::make_shared<InternalPacket>();	\
+											packet->mHostID = host;															\
+											packet->mData = std::move(data);												\
+
 class InternalData
 {
 public:

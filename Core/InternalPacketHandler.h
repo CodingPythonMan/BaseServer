@@ -8,17 +8,21 @@
 
 class InternalPacketHandler
 {
+public:
+	void			PushInternal(std::shared_ptr<InternalPacket> packet);
+
 protected:
 	void			_ProcessInternalPacket();
+	bool			_DispatchInternalPacket(std::shared_ptr<InternalPacket> packet);
 
 
-	BlockingQueue<std::shared_ptr<InternalPacket>>	mPacketQueue;
-	std::deque<std::shared_ptr<InternalPacket>>		mWorkingQueue;
+	BlockingQueue<std::shared_ptr<InternalPacket>>	mInternalPacketQueue;
+	std::deque<std::shared_ptr<InternalPacket>>		mInternalWorkingQueue;
 
-	BlockingQueue<std::shared_ptr<InternalPacket>>	mRecoverQueue;
+	BlockingQueue<std::shared_ptr<InternalPacket>>	mInternalRecoverQueue;
 
 	// map<messageID, function>
-	std::map<int, std::function<bool(std::shared_ptr<InternalPacket>())>>	mPacketHandler = {};
+	std::map<int, std::function<bool(std::shared_ptr<InternalPacket>)>>	mInternalPacketHandler = {};
 
 	template <typename DispatcherType,
 		typename = typename std::enable_if<std::is_base_of<InternalPacketHandler, DispatcherType>::value>::type>
@@ -30,6 +34,6 @@ protected:
 				return (derived->*handler)(packet);
 			};
 
-		mPacketHandler.insert({ id, invoker });
+		mInternalPacketHandler.insert({ id, invoker });
 	}
 };

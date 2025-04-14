@@ -3,7 +3,11 @@
 #include "PacketPayload.h"
 #include "Protocol.pb.h"
 
-class Packet : public SharedObject<Packet>
+#define	MakePacket(host, msgID, msg)				std::shared_ptr<Packet> packet = std::make_shared<Packet>();			\
+													packet->mHostID = host;													\
+													packet->Serialize(msgID, msg);
+
+struct Packet : public SharedObject<Packet>
 {
 public:
 	Packet() = default;
@@ -28,7 +32,6 @@ public:
 	uint8_t* GetMessageBytes();
 	uint8_t* GetPayloadBytes();
 
-private:
 	int		mHostID = 0;
 	int		mMsgID = 0;
 	int		mMsgLen = 0;

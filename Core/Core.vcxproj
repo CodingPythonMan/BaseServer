@@ -39,6 +39,7 @@
     <ClInclude Include="NetworkEvent.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="Packet.h" />
+    <ClInclude Include="PacketHandler.h" />
     <ClInclude Include="PacketPayload.h" />
     <ClInclude Include="Protocol.pb.h" />
     <ClInclude Include="Service.h" />
@@ -55,6 +56,7 @@
     <ClCompile Include="MiniDump.cpp" />
     <ClCompile Include="NetworkEvent.cpp" />
     <ClCompile Include="Packet.cpp" />
+    <ClCompile Include="PacketHandler.cpp" />
     <ClCompile Include="PacketPayload.cpp" />
     <ClCompile Include="Protocol.pb.cc" />
     <ClCompile Include="RefSingleton.h" />
