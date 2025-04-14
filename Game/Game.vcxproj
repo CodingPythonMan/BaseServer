@@ -22,12 +22,14 @@
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="GameServer.cpp" />
     <ClCompile Include="GameService.cpp" />
+    <ClCompile Include="LogService.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Environment.h" />
     <ClInclude Include="GameServer.h" />
     <ClInclude Include="GameService.h" />
+    <ClInclude Include="LogService.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

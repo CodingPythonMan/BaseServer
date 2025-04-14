@@ -36,7 +36,10 @@
     <ClInclude Include="jsoncpp\writer.h" />
     <ClInclude Include="Language.h" />
     <ClInclude Include="MiniDump.h" />
+    <ClInclude Include="IOContext.h" />
     <ClInclude Include="NetworkEvent.h" />
+    <ClInclude Include="NetworkHost.h" />
+    <ClInclude Include="NetworkManager.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="Packet.h" />
     <ClInclude Include="PacketHandler.h" />
@@ -54,7 +57,10 @@
     <ClCompile Include="jsoncpp\json_value.cpp" />
     <ClCompile Include="jsoncpp\json_writer.cpp" />
     <ClCompile Include="MiniDump.cpp" />
+    <ClCompile Include="IOContext.cpp" />
     <ClCompile Include="NetworkEvent.cpp" />
+    <ClCompile Include="NetworkHost.cpp" />
+    <ClCompile Include="NetworkManager.cpp" />
     <ClCompile Include="Packet.cpp" />
     <ClCompile Include="PacketHandler.cpp" />
     <ClCompile Include="PacketPayload.cpp" />

@@ -69,6 +69,15 @@
     <ClCompile Include="PacketHandler.cpp">
       <Filter>Service</Filter>
     </ClCompile>
+    <ClCompile Include="NetworkManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkHost.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="IOContext.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniDump.h">
@@ -151,6 +160,15 @@
     </ClInclude>
     <ClInclude Include="PacketHandler.h">
       <Filter>Service</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkHost.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="IOContext.h">
+      <Filter>Network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
