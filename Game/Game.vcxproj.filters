@@ -24,7 +24,10 @@
     <ClCompile Include="GameService.cpp">
       <Filter>Service</Filter>
     </ClCompile>
-    <ClCompile Include="LogService.cpp">
+    <ClCompile Include="GameConnectEvent.cpp">
+      <Filter>Service</Filter>
+    </ClCompile>
+    <ClCompile Include="GameConnectService.cpp">
       <Filter>Service</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,7 +41,10 @@
     <ClInclude Include="GameService.h">
       <Filter>Service</Filter>
     </ClInclude>
-    <ClInclude Include="LogService.h">
+    <ClInclude Include="GameConnectEvent.h">
+      <Filter>Service</Filter>
+    </ClInclude>
+    <ClInclude Include="GameConnectService.h">
       <Filter>Service</Filter>
     </ClInclude>
   </ItemGroup>

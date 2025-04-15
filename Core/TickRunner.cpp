@@ -21,5 +21,24 @@ void TickRunner::RegisterRunner(int intervalTick, std::function<void()> func)
 
 void TickRunner::Update()
 {
+	int64_t tick = TimeUtil::GetTick64();
+	int64_t startTick = 0;
+	int64_t gapTick = 0;
 
+	for (auto& data : mTickDataList)
+	{
+		if (data.mNextTick > tick)
+		{
+			continue;
+		}
+
+		startTick = TimeUtil::GetTick64();
+		// 콜백 함수 실행
+		data.mFunc();
+		gapTick = TimeUtil::GetTick64() - startTick;
+
+		
+	}
+
+	mUpdateTick = TimeUtil::GetTick64() + INTERVAL_TICK;
 }

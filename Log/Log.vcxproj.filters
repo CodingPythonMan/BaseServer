@@ -4,6 +4,9 @@
     <Filter Include="Main">
       <UniqueIdentifier>{6645099e-7a95-4dbe-96c3-dae69fb60ea5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Service">
+      <UniqueIdentifier>{7ade8a9f-af35-4e9a-90dd-d2384373cf2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -12,10 +15,22 @@
     <ClCompile Include="LogServer.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="LogService.cpp">
+      <Filter>Service</Filter>
+    </ClCompile>
+    <ClCompile Include="LogConnectEvent.cpp">
+      <Filter>Service</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LogServer.h">
       <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="LogService.h">
+      <Filter>Service</Filter>
+    </ClInclude>
+    <ClInclude Include="LogConnectEvent.h">
+      <Filter>Service</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

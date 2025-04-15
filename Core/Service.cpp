@@ -3,7 +3,7 @@
 bool Service::CreateThread()
 {
 	mThreadHandle = reinterpret_cast<HANDLE>(::_beginthreadex(nullptr, 0, Work, this, 0, nullptr));
-	return false;
+	return true;
 }
 
 unsigned int Service::Run()

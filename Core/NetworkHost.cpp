@@ -10,7 +10,7 @@ void NetworkHost::SetIP(std::string ip)
 	mIP = ip;
 }
 
-void NetworkHost::SetPort(int port)
+void NetworkHost::SetPortNum(int port)
 {
 	mPort = port;
 }

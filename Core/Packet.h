@@ -5,7 +5,7 @@
 
 #define	MakePacket(host, msgID, msg)				std::shared_ptr<Packet> packet = std::make_shared<Packet>();			\
 													packet->mHostID = host;													\
-													packet->Serialize(msgID, msg);
+													packet->Serialize(msgID, msg);											\
 
 struct Packet : public SharedObject<Packet>
 {

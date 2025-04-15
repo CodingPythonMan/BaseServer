@@ -78,6 +78,12 @@
     <ClCompile Include="IOContext.cpp">
       <Filter>Network</Filter>
     </ClCompile>
+    <ClCompile Include="ServerConnectInfo.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="DelayChecker.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniDump.h">
@@ -169,6 +175,15 @@
     </ClInclude>
     <ClInclude Include="IOContext.h">
       <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerInfo.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerConnectInfo.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="DelayChecker.h">
+      <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

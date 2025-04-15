@@ -2,6 +2,8 @@
 #include <cstdint>
 #include <functional>
 
+#define INTERVAL_TICK 5
+
 class TickRunner
 {
 public:
@@ -20,7 +22,7 @@ public:
 	void					Update();
 
 private:
-	int64_t					mTickUpdate = 0;
+	int64_t					mUpdateTick = 0;
 	std::vector<sTickData>	mTickDataList;
 
 	int						mCurrentIndex = 0;

@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="BlockingQueue.h" />
     <ClInclude Include="ConfigParser.h" />
+    <ClInclude Include="DelayChecker.h" />
     <ClInclude Include="InternalPacket.h" />
     <ClInclude Include="InternalPacketHandler.h" />
     <ClInclude Include="json.h" />
@@ -45,6 +46,8 @@
     <ClInclude Include="PacketHandler.h" />
     <ClInclude Include="PacketPayload.h" />
     <ClInclude Include="Protocol.pb.h" />
+    <ClInclude Include="ServerConnectInfo.h" />
+    <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="Service.h" />
     <ClInclude Include="SharedObject.h" />
     <ClInclude Include="TickRunner.h" />
@@ -52,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConfigParser.cpp" />
+    <ClCompile Include="DelayChecker.cpp" />
     <ClCompile Include="InternalPacketHandler.cpp" />
     <ClCompile Include="jsoncpp\json_reader.cpp" />
     <ClCompile Include="jsoncpp\json_value.cpp" />
@@ -66,6 +70,7 @@
     <ClCompile Include="PacketPayload.cpp" />
     <ClCompile Include="Protocol.pb.cc" />
     <ClCompile Include="RefSingleton.h" />
+    <ClCompile Include="ServerConnectInfo.cpp" />
     <ClCompile Include="Service.cpp" />
     <ClCompile Include="TickRunner.cpp" />
     <ClCompile Include="TimeUtil.cpp" />
@@ -180,6 +185,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <DisableSpecificWarnings>26495;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -199,6 +205,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <DisableSpecificWarnings>26495;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>

@@ -1,9 +1,9 @@
 {
   "Server": {
     "Name": "Game",
-    "ServerID": 101,
+    "ServerID": 10101,
     "BindAddress": "0.0.0.0",
-    "BindPort": 12345,
+    "BindPort": 39424,
     "Nagle": true,
     "MaxConnection": 10000
   },

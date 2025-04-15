@@ -6,16 +6,7 @@
 
 #include "RefSingleton.h"
 #include "Language.h"
-
-struct ServerInfo 
-{
-	std::string		Name;
-	int				ServerID;
-	std::string		BindAddress;
-	int				BindPort;
-	bool			Nagle;
-	int				MaxConnection;
-};
+#include "ServerInfo.h"
 
 class ConfigParser : public RefSingleton<ConfigParser>
 {
@@ -23,6 +14,7 @@ public:
 	bool					LoadConfig(const std::wstring& configFile);
 
 	const ServerInfo&		GetServerInfo() const;
+	const ConnectInfo&		GetConnectInfo() const;
 	const Language			GetLanguage() const;
 
 private:
@@ -30,12 +22,13 @@ private:
 	void					LoadCPUInfo();
 
 private:
-	std::wstring			m_fileName;
+	std::wstring			mFileName;
 
 	// Parser µ•¿Ã≈Õ
-	ServerInfo				m_serverInfo;
-	Language				m_language;
+	ServerInfo				mServerInfo;
+	ConnectInfo				mConnectInfo;
+	Language				mLanguage;
 
 	// CPU Count
-	int						m_processorCount;
+	int						mProcessorCount = 0;
 };

@@ -8,7 +8,7 @@ class NetworkHost
 public:
 	void			SetEvent(NetworkEvent* networkEvent);
 	void			SetIP(std::string ip);
-	void			SetPort(int port);
+	void			SetPortNum(int port);
 	int				GetHostID();
 
 private:

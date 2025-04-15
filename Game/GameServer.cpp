@@ -3,6 +3,7 @@
 #include "Environment.h"
 #include "Packet.h"
 #include "GameService.h"
+#include "GameConnectService.h"
 
 GameServer::~GameServer()
 {
@@ -17,8 +18,10 @@ bool GameServer::Initialize()
 	Environment::GetInstance().mServerID = mainInfo.ServerID;
 	Environment::GetInstance().SetMaxConnection(mainInfo.MaxConnection);
 
-	// 지금 여기에선 DB 연결은 딱히 필요 없다.
-	// Log Server 로 넘겨주면, Log Server 에서 DB 처리하면 된다.
+	if (false == GameConnectService::GetInstance().Initialize())
+	{
+		return false;
+	}
 
 	return true;
 }
@@ -27,10 +30,10 @@ bool GameServer::Run()
 {
 	Packet::ReservePool(1000);
 
-	//if (false == LogService::GetInstance().Start)
-	//{
-	//	return false;
-	//}
+	if (false == GameConnectService::GetInstance().Start())
+	{
+		return false;
+	}
 
 	if (false == GameService::GetInstance().Start())
 	{
