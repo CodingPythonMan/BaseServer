@@ -39,6 +39,7 @@
     <ClInclude Include="MiniDump.h" />
     <ClInclude Include="IOContext.h" />
     <ClInclude Include="NetworkEvent.h" />
+    <ClInclude Include="NetworkHandler.h" />
     <ClInclude Include="NetworkHost.h" />
     <ClInclude Include="NetworkManager.h" />
     <ClInclude Include="ObjectPool.h" />
@@ -63,6 +64,7 @@
     <ClCompile Include="MiniDump.cpp" />
     <ClCompile Include="IOContext.cpp" />
     <ClCompile Include="NetworkEvent.cpp" />
+    <ClCompile Include="NetworkHandler.cpp" />
     <ClCompile Include="NetworkHost.cpp" />
     <ClCompile Include="NetworkManager.cpp" />
     <ClCompile Include="Packet.cpp" />

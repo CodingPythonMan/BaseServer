@@ -10,6 +10,7 @@ enum class EContextType
 {
 	NONE = 0,
 	CONNECT,
+	ACCEPT,
 };
 
 class IOContext	: public OVERLAPPED
@@ -26,6 +27,9 @@ public:
 
 	char*			GetStart();
 
+	long			IncreaseReferenceCount();
+	long			DecreaseReferenceCount();
+
 private:
 	EContextType	mType = EContextType::NONE;
 	size_t			mBufferSize = 0;
@@ -33,4 +37,6 @@ private:
 
 	int				mReadSize = 0;
 	int				mWriteSize = 0;
+
+	volatile long	mReferenceCount = 0;
 };

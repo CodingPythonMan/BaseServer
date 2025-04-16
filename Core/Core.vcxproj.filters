@@ -84,6 +84,9 @@
     <ClCompile Include="DelayChecker.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
+    <ClCompile Include="NetworkHandler.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniDump.h">
@@ -184,6 +187,9 @@
     </ClInclude>
     <ClInclude Include="DelayChecker.h">
       <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkHandler.h">
+      <Filter>Network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

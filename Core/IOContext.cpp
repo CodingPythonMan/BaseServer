@@ -94,3 +94,13 @@ char* IOContext::GetStart()
 
 	return mBuffer + mWriteSize;
 }
+
+long IOContext::IncreaseReferenceCount()
+{
+	return InterlockedIncrement(&mReferenceCount);
+}
+
+long IOContext::DecreaseReferenceCount()
+{
+	return InterlockedDecrement(&mReferenceCount);
+}
