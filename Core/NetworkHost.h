@@ -2,10 +2,13 @@
 #include <WS2tcpip.h>
 #include <windows.h>
 #include <string>
+#include <mutex>
 
 #pragma comment(lib, "ws2_32.lib")
+#pragma comment(lib, "mswsock.lib")
 
 #define ACCEPT_WAIT_COUNT 100
+#define NETWORK_ALIVE_TICK 15000
 
 class NetworkEvent;
 class IOContext;
@@ -29,7 +32,13 @@ public:
 	bool			IsAlive();
 	void			Update(int64_t tick);
 
-	void			Disconnect();
+	bool			Disconnect();
+
+	void			OnDisconnect();
+	void			OnConnect(EHostType type);
+
+	void			StartNetworkTask();
+	void			FinishNetworkTask(bool validSocket);
 
 private:
 	bool			_Accept(IOContext& context);
@@ -49,4 +58,8 @@ private:
 	SOCKET			mSocket = INVALID_SOCKET;
 
 	EHostType		mType = EHostType::NONE;
+
+	NetworkEvent*	mEvent = nullptr;
+	int64_t			mTimeoutTick = 0;
+	int64_t			mAliveTick = 0;
 };

@@ -104,3 +104,8 @@ long IOContext::DecreaseReferenceCount()
 {
 	return InterlockedDecrement(&mReferenceCount);
 }
+
+EContextType IOContext::GetType()
+{
+	return mType;
+}

@@ -42,11 +42,13 @@
     <ClInclude Include="NetworkHandler.h" />
     <ClInclude Include="NetworkHost.h" />
     <ClInclude Include="NetworkManager.h" />
+    <ClInclude Include="IocpWorker.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="Packet.h" />
     <ClInclude Include="PacketHandler.h" />
     <ClInclude Include="PacketPayload.h" />
     <ClInclude Include="Protocol.pb.h" />
+    <ClInclude Include="Server.h" />
     <ClInclude Include="ServerConnectInfo.h" />
     <ClInclude Include="ServerInfo.h" />
     <ClInclude Include="Service.h" />
@@ -67,11 +69,13 @@
     <ClCompile Include="NetworkHandler.cpp" />
     <ClCompile Include="NetworkHost.cpp" />
     <ClCompile Include="NetworkManager.cpp" />
+    <ClCompile Include="IocpWorker.cpp" />
     <ClCompile Include="Packet.cpp" />
     <ClCompile Include="PacketHandler.cpp" />
     <ClCompile Include="PacketPayload.cpp" />
     <ClCompile Include="Protocol.pb.cc" />
     <ClCompile Include="RefSingleton.h" />
+    <ClCompile Include="Server.cpp" />
     <ClCompile Include="ServerConnectInfo.cpp" />
     <ClCompile Include="Service.cpp" />
     <ClCompile Include="TickRunner.cpp" />

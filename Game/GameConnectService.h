@@ -15,7 +15,7 @@ public:
 	bool				Start();
 
 private:
-	void				_TryListen();
+	void				_TryConnect();
 
 private:
 	bool				mIsStarted = false;

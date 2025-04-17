@@ -87,6 +87,12 @@
     <ClCompile Include="NetworkHandler.cpp">
       <Filter>Network</Filter>
     </ClCompile>
+    <ClCompile Include="Server.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="IocpWorker.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniDump.h">
@@ -189,6 +195,12 @@
       <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="NetworkHandler.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Server.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="IocpWorker.h">
       <Filter>Network</Filter>
     </ClInclude>
   </ItemGroup>

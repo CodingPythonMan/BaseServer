@@ -11,6 +11,11 @@ enum class EContextType
 	NONE = 0,
 	CONNECT,
 	ACCEPT,
+	RECEIVE,
+	SEND,
+	LISTEN,
+	JOIN,
+	DISCONNECT,
 };
 
 class IOContext	: public OVERLAPPED
@@ -29,6 +34,8 @@ public:
 
 	long			IncreaseReferenceCount();
 	long			DecreaseReferenceCount();
+
+	EContextType	GetType();
 
 private:
 	EContextType	mType = EContextType::NONE;

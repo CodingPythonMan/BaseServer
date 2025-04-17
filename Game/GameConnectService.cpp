@@ -12,20 +12,30 @@ bool GameConnectService::Initialize()
 
 bool GameConnectService::Start()
 {
-	_TryListen();
-
 	return CreateThread();
 }
 
-void GameConnectService::_TryListen()
+void GameConnectService::_TryConnect()
 {
-	if (true == mIsStarted)
+	for (auto [serverID, connectInfo] : mConnectInfoList)
 	{
-		return;
-	}
+		printf("Try Connect....\n");
+		if (true == connectInfo->IsConnected())
+		{
+			continue;
+		}
 
-	//if (true == NetworkManager::GetInstance().IsInitialized())
-	//{
-	//	mIsStarted = NetworkManager::GetInstance().Listen(&mEventSync, mServerInfo.BindAddress, mServerInfo.BindPort);
-	//}
+		if (true == connectInfo->IsConnecting())
+		{
+			continue;
+		}
+
+		connectInfo->SetState(EServerConnectState::Connecting);
+
+		int hostID = 0;
+		if (true == NetworkManager::GetInstance().Connect(&mEvent, connectInfo->mHostIP, connectInfo->mHostPort, OUT hostID))
+		{
+			connectInfo->SetHostID(hostID);
+		}
+	}
 }

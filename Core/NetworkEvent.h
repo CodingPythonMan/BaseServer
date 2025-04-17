@@ -4,6 +4,7 @@
 class NetworkEvent
 {
 private:
+	// 60초 간은 연결 유지 위해 설정
 	const int DEFAULT_TIME_MS = 60000;
 
 public:

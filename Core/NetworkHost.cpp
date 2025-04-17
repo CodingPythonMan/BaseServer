@@ -2,6 +2,7 @@
 #include "NetworkEvent.h"
 #include "IOContext.h"
 #include <MSWSock.h>
+#include "TimeUtil.h"
 
 void NetworkHost::SetEvent(NetworkEvent* networkEvent)
 {
@@ -56,7 +57,20 @@ void NetworkHost::Update(int64_t tick)
 	}
 }
 
-void NetworkHost::Disconnect()
+bool NetworkHost::Disconnect()
+{
+	if (mSocket == INVALID_SOCKET)
+	{
+		return false;
+	}
+
+	::closesocket(mSocket);
+	mSocket = INVALID_SOCKET;
+
+	return true;
+}
+
+void NetworkHost::OnDisconnect()
 {
 	if (mNetworkEvent == nullptr)
 	{
@@ -66,6 +80,48 @@ void NetworkHost::Disconnect()
 	mNetworkEvent->OnDisconnect(mHostID, mIP, mPort);
 
 	mNetworkEvent = nullptr;
+}
+
+void NetworkHost::OnConnect(EHostType type)
+{
+	// Nagle 은 이 곳에서 설정하는게 아니다! Listen 에 설정하도록!
+
+	// 이벤트 호출
+	if (nullptr != mEvent)
+	{
+		// Timeout 설정
+		int64_t tick = TimeUtil::GetTick64();
+		mTimeoutTick = tick + mEvent->GetTimeoutTick();
+		mAliveTick = tick + NETWORK_ALIVE_TICK;
+
+		if (EHostType::ACCEPTOR == type)
+		{
+			mEvent->OnAccept(mHostID, mIP, mPort);
+		}
+		else if (EHostType::CONNECTOR == type)
+		{
+			mEvent->OnConnect(mHostID, mIP, mPort);
+		}
+	}
+
+	mType = type;
+}
+
+void NetworkHost::StartNetworkTask()
+{
+	::InterlockedIncrement(&mNetworkTaskCount);
+}
+
+void NetworkHost::FinishNetworkTask(bool validSocket)
+{
+	::InterlockedDecrement(&mNetworkTaskCount);
+
+	if (validSocket == true)
+	{
+		return;
+	}
+
+	Disconnect();
 }
 
 bool NetworkHost::_Accept(IOContext& context)
@@ -121,12 +177,15 @@ void NetworkHost::_UpdateListener(int64_t tick)
 			continue;
 		}
 
-		::InterlockedIncrement(&mNetworkTaskCount);
+		StartNetworkTask();
 
 		if (false == _Accept(*context))
 		{
-
+			// Accept 가 실패하더라도 ListenSocket 은 listen 상태 유지.
+			FinishNetworkTask(true);
 		}
+
+		delete context;
 	}
 }
 

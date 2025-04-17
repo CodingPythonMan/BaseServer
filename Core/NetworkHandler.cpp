@@ -3,6 +3,19 @@
 #include "TimeUtil.h"
 #include "NetworkHost.h"
 
+bool NetworkHandler::CreateThread()
+{
+	HANDLE handle = reinterpret_cast<HANDLE>(::_beginthreadex(nullptr, 0, _ExecuteThread, this, 0, nullptr));
+	if (handle == nullptr || handle == INVALID_HANDLE_VALUE)
+	{
+		return false;
+	}
+
+	mHandle = handle;
+
+	return true;
+}
+
 bool NetworkHandler::PushThread(IOContext* context)
 {
 	if (context == nullptr)
@@ -13,6 +26,54 @@ bool NetworkHandler::PushThread(IOContext* context)
 	mContextQueue.Push(context);
 
 	return true;
+}
+
+void NetworkHandler::_ProcessThread()
+{
+	while (true)
+	{
+		Update();
+
+		std::unordered_map<int, bool> mapList;
+		{
+			std::lock_guard<std::mutex> guard(mRecvLock);
+			mapList.swap(mRecvCheckMap);
+		}
+
+		for (const auto& [hostID, check] : mapList)
+		{
+			auto host = _FindHost(hostID);
+
+		}
+
+		auto context = mContextQueue.Pop();
+		if (context == nullptr)
+		{
+			::Sleep(1);
+			continue;
+		}
+
+		switch (context->GetType())
+		{
+		case EContextType::CONNECT:
+			_ProcessConnect(*context);
+			break;
+		case EContextType::LISTEN:
+			_ProcessListen(*context);
+			break;
+		case EContextType::JOIN:
+			_ProcessJoin(*context);
+			break;
+		case EContextType::DISCONNECT:
+			_ProcessDisconnect(*context);
+			break;
+		default:
+			printf("failed! -GetType:%d", context->GetType());
+			break;
+		}
+
+		delete context;
+	}
 }
 
 void NetworkHandler::UpdateHost()
@@ -33,7 +94,7 @@ void NetworkHandler::UpdateHost()
 				continue;
 			}
 
-			host->Disconnect();
+			host->OnDisconnect();
 			delete host;
 		}
 
@@ -46,4 +107,24 @@ void NetworkHandler::UpdateHost()
 void NetworkHandler::_RemoveHost(const int hostID)
 {
 
+}
+
+NetworkHost* NetworkHandler::_FindHost(const int hostID)
+{
+	std::lock_guard<std::mutex> lock(mHostIDLock);
+
+	auto iter = mHostMap.find(hostID);
+	if (iter == mHostMap.end())
+	{
+		return nullptr;
+	}
+
+	return iter->second;
+}
+
+unsigned int __stdcall NetworkHandler::_ExecuteThread(void* arg)
+{
+	auto& handler = *static_cast<NetworkHandler*>(arg);
+	handler._ProcessThread();
+	return 0;
 }

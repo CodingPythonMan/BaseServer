@@ -15,7 +15,7 @@ public:
 	bool				Start();
 
 private:
-	void				_TryConnect();
+	void				_TryListen();
 
 private:
 	// 있지만 굳이 로그에서 되돌려주는 값은 아니기 때문에 쓰진 않음
