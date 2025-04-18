@@ -26,3 +26,8 @@ bool Server::Start()
 
 	return true;
 }
+
+void Server::BindEvent(std::shared_ptr<NetworkEvent> networkEvent)
+{
+	mEvent = networkEvent;
+}

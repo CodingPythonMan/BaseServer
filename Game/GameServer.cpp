@@ -3,7 +3,9 @@
 #include "Environment.h"
 #include "Packet.h"
 #include "GameService.h"
-#include "GameConnectService.h"
+#include "LogConnectService.h"
+#include "Server.h"
+#include "GameServerEvent.h"
 
 GameServer::~GameServer()
 {
@@ -18,7 +20,7 @@ bool GameServer::Initialize()
 	Environment::GetInstance().mServerID = mainInfo.ServerID;
 	Environment::GetInstance().SetMaxConnection(mainInfo.MaxConnection);
 
-	if (false == GameConnectService::GetInstance().Initialize())
+	if (false == LogConnectService::GetInstance().Initialize())
 	{
 		return false;
 	}
@@ -30,7 +32,10 @@ bool GameServer::Run()
 {
 	Packet::ReservePool(1000);
 
-	if (false == GameConnectService::GetInstance().Start())
+	Server* server = new Server;
+	server->BindEvent(std::make_shared<GameServerEvent>());
+
+	if (false == LogConnectService::GetInstance().Start())
 	{
 		return false;
 	}
@@ -39,6 +44,8 @@ bool GameServer::Run()
 	{
 		return false;
 	}
+
+	server->Start();
 
 	while (1)
 	{

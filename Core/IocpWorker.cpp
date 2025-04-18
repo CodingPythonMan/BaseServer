@@ -29,6 +29,31 @@ bool IocpWorker::CreateThread()
 	return true;
 }
 
+bool IocpWorker::RegisterSocket(NetworkHost* host)
+{
+	if (host == nullptr)
+	{
+		printf("RegisterSocket host is null!\n");
+		return false;
+	}
+
+	auto sock = host->GetSocket();
+	if (sock == INVALID_SOCKET)
+	{
+		printf("Host is invalid socket!\n");
+		return false;
+	}
+
+	if (::CreateIoCompletionPort(reinterpret_cast<HANDLE>(sock), mIocp,
+		reinterpret_cast<ULONG_PTR>(host), 0) == nullptr)
+	{
+		printf("CreateIOCompletionPort is failed!");
+		return false;
+	}
+
+	return true;
+}
+
 unsigned int __stdcall IocpWorker::_ExecuteThread(void* arg)
 {
 	auto& worker = *static_cast<IocpWorker*>(arg);

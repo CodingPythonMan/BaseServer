@@ -26,8 +26,12 @@ public:
 
 	void			Ready(EContextType type);
 	bool			Write(void* src, int srcSize);
+	bool			Read(void* dest, int destSize);
+	void			ResetBuffer();
 
 	char*			GetData();
+	int				GetDataSize();
+
 	void			Align();
 
 	char*			GetStart();
@@ -42,8 +46,8 @@ private:
 	size_t			mBufferSize = 0;
 	char*			mBuffer = nullptr;
 
-	int				mReadSize = 0;
-	int				mWriteSize = 0;
+	int				mReadPos = 0;
+	int				mWritePos = 0;
 
 	volatile long	mReferenceCount = 0;
 };

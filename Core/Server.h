@@ -10,6 +10,8 @@ public:
 	virtual ~Server() = default;
 
 	bool		Start();
+
+	void		BindEvent(std::shared_ptr<NetworkEvent> networkEvent);
 	
 private:
 	std::shared_ptr<NetworkEvent>	mEvent;

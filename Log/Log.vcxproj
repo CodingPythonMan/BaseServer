@@ -19,13 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LogConnectEvent.cpp" />
+    <ClCompile Include="LogServerEvent.cpp" />
     <ClCompile Include="LogServer.cpp" />
     <ClCompile Include="LogService.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LogConnectEvent.h" />
+    <ClInclude Include="LogServerEvent.h" />
     <ClInclude Include="LogServer.h" />
     <ClInclude Include="LogService.h" />
   </ItemGroup>

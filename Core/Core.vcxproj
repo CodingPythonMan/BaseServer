@@ -191,7 +191,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <DisableSpecificWarnings>26495;</DisableSpecificWarnings>
+      <DisableSpecificWarnings>6387;26495;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -211,7 +211,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <DisableSpecificWarnings>26495;</DisableSpecificWarnings>
+      <DisableSpecificWarnings>6387;26495;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>

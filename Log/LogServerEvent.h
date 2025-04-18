@@ -1,11 +1,11 @@
 #pragma once
 #include "NetworkEvent.h"
 
-class GameConnectEvent : public NetworkEvent
+class LogServerEvent : public NetworkEvent
 {
 public:
-	GameConnectEvent() = default;
-	virtual ~GameConnectEvent() = default;
+	LogServerEvent() = default;
+	virtual ~LogServerEvent() = default;
 
 public:
 	virtual void OnReceive(int hostID, int messageID, char* message, int messageSize) override;

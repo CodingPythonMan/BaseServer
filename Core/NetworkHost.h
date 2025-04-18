@@ -27,12 +27,17 @@ public:
 	void			SetEvent(NetworkEvent* networkEvent);
 	void			SetIP(std::string ip);
 	void			SetPortNum(int port);
+	void			SetIsRecv(bool check);
+	SOCKET			GetSocket();
+
 	int				GetHostID();
 
 	bool			IsAlive();
 	void			Update(int64_t tick);
 
 	bool			Disconnect();
+	bool			Connect(IOContext& context);
+	bool			Listen();
 
 	void			OnDisconnect();
 	void			OnConnect(EHostType type);
@@ -56,6 +61,7 @@ private:
 	volatile long	mNetworkTaskCount = 0;
 	volatile long	mSendTaskCount = 0;
 	SOCKET			mSocket = INVALID_SOCKET;
+	bool			mIsRecv = false;
 
 	EHostType		mType = EHostType::NONE;
 

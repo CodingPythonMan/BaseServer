@@ -7,6 +7,7 @@ class IocpWorker
 public:
 	bool		CreateThread();
 
+	bool		RegisterSocket(NetworkHost* host);
 
 private:
 	static unsigned int WINAPI _ExecuteThread(void* arg);

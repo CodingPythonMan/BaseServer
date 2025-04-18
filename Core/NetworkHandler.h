@@ -15,15 +15,22 @@ public:
 
 	bool						CreateThread();
 	bool						PushThread(IOContext* context);
-	void						_ProcessThread();
 
 	void						UpdateHost();
 
 private:
 	void						_RemoveHost(const int hostID);
 	NetworkHost*				_FindHost(const int hostID);
-	
+	bool						_AddHost(NetworkHost* host);
+	void						_AddServerHost(NetworkHost* host);
+
 	static unsigned int WINAPI	_ExecuteThread(void* arg);
+
+	void						_ProcessThread();
+	void						_ProcessConnect(IOContext& context);
+	void						_ProcessListen(IOContext& context);
+	void						_ProcessJoin(IOContext& context);
+	void						_ProcessDisconnect(IOContext& context);
 
 private:
 	BlockingQueue<IOContext*>				mContextQueue;

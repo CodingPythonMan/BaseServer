@@ -10,6 +10,9 @@
     <Filter Include="Service">
       <UniqueIdentifier>{8d116e3d-f1c6-4933-a2fa-7a7f4b036580}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Service\Log">
+      <UniqueIdentifier>{67ef7ac4-9c90-4c72-a63f-4a6a02d03227}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -24,10 +27,13 @@
     <ClCompile Include="GameService.cpp">
       <Filter>Service</Filter>
     </ClCompile>
-    <ClCompile Include="GameConnectEvent.cpp">
-      <Filter>Service</Filter>
+    <ClCompile Include="LogConnectEvent.cpp">
+      <Filter>Service\Log</Filter>
     </ClCompile>
-    <ClCompile Include="GameConnectService.cpp">
+    <ClCompile Include="LogConnectService.cpp">
+      <Filter>Service\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="GameServerEvent.cpp">
       <Filter>Service</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,10 +47,13 @@
     <ClInclude Include="GameService.h">
       <Filter>Service</Filter>
     </ClInclude>
-    <ClInclude Include="GameConnectEvent.h">
-      <Filter>Service</Filter>
+    <ClInclude Include="LogConnectEvent.h">
+      <Filter>Service\Log</Filter>
     </ClInclude>
-    <ClInclude Include="GameConnectService.h">
+    <ClInclude Include="LogConnectService.h">
+      <Filter>Service\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="GameServerEvent.h">
       <Filter>Service</Filter>
     </ClInclude>
   </ItemGroup>

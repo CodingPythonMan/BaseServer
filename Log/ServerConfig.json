@@ -3,15 +3,9 @@
     "Name": "Log",
     "ServerID": 30101,
     "BindAddress": "0.0.0.0",
-    "BindPort": 0,
+    "BindPort": 38424,
     "Nagle": true,
     "MaxConnection": 10000
-  },
-  "Connect": {
-    "Name": "Game",
-    "ServerID": 30101,
-    "Address": "127.0.0.1",
-    "Port": 39424
   },
 
   "Language": "KR"

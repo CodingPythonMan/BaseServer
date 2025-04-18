@@ -47,6 +47,9 @@ bool NetworkManager::IsInitialized() const
 
 void NetworkManager::StartThread()
 {
+	mNetworkHandler = new NetworkHandler();
+	mIocpWorker = new IocpWorker();
+
 	if (mNetworkHandler == nullptr || mIocpWorker == nullptr)
 	{
 		printf("NetworkHandler, IocpWorker is null\n");
@@ -57,6 +60,11 @@ void NetworkManager::StartThread()
 	mIocpWorker->CreateThread();
 
 	mIsInitialized.store(true);
+}
+
+bool NetworkManager::RegisterSocket(NetworkHost* host)
+{
+	return mIocpWorker->RegisterSocket(host);
 }
 
 bool NetworkManager::_HandleContext(IOContext* context, NetworkHost* host)

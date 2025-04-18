@@ -36,8 +36,6 @@ void TickRunner::Update()
 		// 콜백 함수 실행
 		data.mFunc();
 		gapTick = TimeUtil::GetTick64() - startTick;
-
-		
 	}
 
 	mUpdateTick = TimeUtil::GetTick64() + INTERVAL_TICK;

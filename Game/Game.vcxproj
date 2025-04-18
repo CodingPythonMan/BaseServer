@@ -20,18 +20,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Environment.cpp" />
-    <ClCompile Include="GameConnectService.cpp" />
+    <ClCompile Include="GameServerEvent.cpp" />
+    <ClCompile Include="LogConnectService.cpp" />
     <ClCompile Include="GameServer.cpp" />
     <ClCompile Include="GameService.cpp" />
-    <ClCompile Include="GameConnectEvent.cpp" />
+    <ClCompile Include="LogConnectEvent.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Environment.h" />
-    <ClInclude Include="GameConnectService.h" />
+    <ClInclude Include="GameServerEvent.h" />
+    <ClInclude Include="LogConnectService.h" />
     <ClInclude Include="GameServer.h" />
     <ClInclude Include="GameService.h" />
-    <ClInclude Include="GameConnectEvent.h" />
+    <ClInclude Include="LogConnectEvent.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

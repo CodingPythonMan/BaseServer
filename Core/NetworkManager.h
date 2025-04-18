@@ -22,12 +22,14 @@ public:
 
 	void		StartThread();
 
+	bool		RegisterSocket(NetworkHost* host);
+
 private:
 	bool		_HandleContext(IOContext* context, NetworkHost* host);
 
 private:
 	std::atomic_bool	mIsInitialized = false;
 
-	NetworkHandler*		mNetworkHandler;
-	IocpWorker*			mIocpWorker;
+	NetworkHandler*		mNetworkHandler = nullptr;
+	IocpWorker*			mIocpWorker = nullptr;
 };
