@@ -97,7 +97,17 @@ bool NetworkHandler::_AddHost(NetworkHost* host)
 		mHostMap[host->GetHostID()] = host;
 	}
 
-	// 아직 Pool 을 안 쓰므로 Socket 을 재생성하지 않음
+	SOCKET& sock = host->mSocket;
+	if (sock == INVALID_SOCKET)
+	{
+		sock = ::WSASocket(AF_INET, SOCK_STREAM, IPPROTO_TCP, nullptr, 0, WSA_FLAG_OVERLAPPED);
+		if (sock == INVALID_SOCKET)
+		{
+			printf("WSASocket is failed!:%d", ::WSAGetLastError());
+			host->Disconnect();
+			return false;
+		}
+	}
 
 	if (false == NetworkManager::GetInstance().RegisterSocket(host))
 	{

@@ -37,7 +37,7 @@ bool IocpWorker::RegisterSocket(NetworkHost* host)
 		return false;
 	}
 
-	auto sock = host->GetSocket();
+	SOCKET& sock = host->mSocket;
 	if (sock == INVALID_SOCKET)
 	{
 		printf("Host is invalid socket!\n");

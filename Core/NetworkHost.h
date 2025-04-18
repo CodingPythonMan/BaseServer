@@ -12,6 +12,8 @@
 
 class NetworkEvent;
 class IOContext;
+class NetworkHandler;
+class IocpWorker;
 
 enum class EHostType : int
 {
@@ -23,12 +25,14 @@ enum class EHostType : int
 
 class NetworkHost
 {
+	friend NetworkHandler;
+	friend IocpWorker;
+
 public:
 	void			SetEvent(NetworkEvent* networkEvent);
 	void			SetIP(std::string ip);
 	void			SetPortNum(int port);
 	void			SetIsRecv(bool check);
-	SOCKET			GetSocket();
 
 	int				GetHostID();
 

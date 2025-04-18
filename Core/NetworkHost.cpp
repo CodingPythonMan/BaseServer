@@ -24,11 +24,6 @@ void NetworkHost::SetIsRecv(bool check)
 	mIsRecv = check;
 }
 
-SOCKET NetworkHost::GetSocket()
-{
-	return mSocket;
-}
-
 int NetworkHost::GetHostID()
 {
 	return mHostID;
